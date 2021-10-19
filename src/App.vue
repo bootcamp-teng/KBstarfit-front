@@ -29,4 +29,29 @@ export default {
 * {
   font-family: 'Nanum Gothic', sans-serif;
 }
+
+.maincolor {
+  background: #EFB775;
+}
+
+.point-color-pink {
+  background: #EF7880;
+}
+
+.point-color-green {
+  background: #4B8B90;
+}
+
+.point-color-blue {
+  background: #6782D4;
+}
+
+.light-blue {
+  background: #D2EEE8;
+}
+
+.light-pink {
+  background: #FCE4E4;
+}
+
 </style>
