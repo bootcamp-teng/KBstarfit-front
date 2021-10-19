@@ -1,8 +1,8 @@
 <template>
-  <v-app-bar app fixed color="#EFB775">
+  <v-app-bar flat app fixed dark color="#EFB775">
     <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-    <v-toolbar-title>KB 스타Fit</v-toolbar-title>
+    <v-toolbar-title>KB 스타 Fit</v-toolbar-title>
 
     <v-spacer></v-spacer>
 

@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background: #FBF2DD">
+  <v-app style="background: #FFFAF6">
     <app-bar></app-bar>
     <v-main>
       <router-view />
@@ -27,7 +27,8 @@ export default {
 
 <style>
 * {
-  font-family: 'Nanum Gothic', sans-serif;
+  /* font-family: 'Nanum Gothic', sans-serif; */
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .maincolor {
