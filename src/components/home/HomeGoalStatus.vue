@@ -4,24 +4,47 @@
     <div class="water-wave2"></div>
     <div class="water-wave3"></div>
     <p class="exercise-info body-2 mt-3 font-weight-black">목표: 6000</p>
-    <p class="exercise-info text-h5 font-weight-black test">5832</p>
+    <p class="exercise-info text-h5 font-weight-black test">{{ current }}</p>
     <p class="exercise-info caption">걸음</p>
   </div>
 </template>
 
+<script>
+import { mapActions, mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters(["current"]),
+  },
+  created: function () {
+    this.getCurrentAmount();
+  },
+  methods: {
+    ...mapActions(["getCurrentAmount"]),
+  },
+  components: {
+
+  }
+};
+</script>
+
 <style scoped>
+* {
+    color: black;
+}
 .exercise-info {
   position: relative;
-  z-index: 100;
+  z-index: 1;
 }
 .water-waves {
+    background: #D2EEE8;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
   text-align: center;
   line-height: 50px;
   animation: water-waves linear infinite;
@@ -32,7 +55,7 @@
   position: absolute;
   top: 45%;
   left: -25%;
-  background: #33cfff;
+  background: green;
   opacity: 0.7;
   width: 200%;
   height: 200%;
@@ -45,7 +68,7 @@
   position: absolute;
   top: 50%;
   left: -35%;
-  background: #0eaffe;
+  background: greenyellow;
   opacity: 0.5;
   width: 200%;
   height: 200%;
@@ -58,7 +81,7 @@
   position: absolute;
   top: 55%;
   left: -35%;
-  background: #0f7ae4;
+  background: mintcream;
   opacity: 0.3;
   width: 200%;
   height: 200%;
