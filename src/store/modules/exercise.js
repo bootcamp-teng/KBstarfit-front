@@ -29,16 +29,10 @@ const exerciseStore = {
   },
   actions: {
     getCurrentAmount({ commit }) {
-      /*
-            하루 시작 시간 부터 ~ 현재까지로 밀리세컨드 변환 후 등록하기
-            */
       var current = Date.now();
-      // var start = 1634655600000;
-      console.log(current);
+      var start = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()} 00:00:00`;
 
-      var startDate = new Date("10/21/2021 00:00:00").getTime();
-      console.log(startDate);
-
+      var startDate = new Date(start).getTime();
       var access = window.$cookies.get("fit-access");
 
       var body = {

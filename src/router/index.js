@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import SetGoal from "../views/SetGoal.vue";
 import ExerciseRoute from "./exercise";
+import AuthRoute from "./auth";
 
 Vue.use(VueRouter);
 
@@ -26,7 +27,8 @@ const routes = [
     name: "SetGoal",
     component: SetGoal,
   },
-  ...ExerciseRoute
+  ...ExerciseRoute,
+  ...AuthRoute
 ];
 
 const router = new VueRouter({
