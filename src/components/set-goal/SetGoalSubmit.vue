@@ -2,7 +2,6 @@
     <div class="container" style="padding-left: 100px;">
         <div class="inline-block-div" style="margin-right: 50px;"><v-btn depressed>취소</v-btn></div>
         <v-dialog
-            
             width="500"
         >
         <template v-slot:activator="{ on, attrs }">
@@ -26,6 +25,7 @@
                     label="목표 제목"
                     hide-details="auto"
                     :value="title"
+                    v-model="title"
                 ></v-text-field>
             </v-card-text>
 
@@ -54,16 +54,16 @@
         title: ''
     }),
     computed: {
-      ...mapGetters('goal', [
-        'GE_DAY',
+      ...mapGetters('setGoal', [
+        'GE_PERIOD',
         'GE_STEPS',
         'GE_KINDS'
       ]),
-      d() {
-        return this.GE_DAY;
+      period() {
+        return this.GE_PERIOD;
       },
       s() {
-        return this.GE_STEPS; 
+        return this.GE_STEPS;
       },
       k() {
         return this.GE_KINDS;

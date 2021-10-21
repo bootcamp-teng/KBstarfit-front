@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import exerciseStore from './exercise';
+import exerciseStore from "./exercise";
 
-import goal from './modules/goal';
+import setGoal from "./modules/setGoal";
 
 Vue.use(Vuex);
 
@@ -12,6 +12,6 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     exerciseStore: exerciseStore,
-    goal,
+    setGoal,
   },
 });
