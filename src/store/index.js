@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import exerciseStore from './exercise';
 
 import goal from './modules/goal';
 
@@ -10,6 +11,7 @@ export default new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
+    exerciseStore: exerciseStore,
     goal,
   },
 });

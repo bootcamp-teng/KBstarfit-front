@@ -18,20 +18,24 @@
 
         <v-card>
             <v-card-title class="text-h5 grey lighten-2">
-            목표 설정
+            목표 제목 설정
             </v-card-title>
 
             <v-card-text class="pt-4" style="font-size: 1rem">
-            {{ d }} 일 동안 하루에 {{ s }} 씩 {{ k }} 운동
+                <v-text-field
+                    label="목표 제목"
+                    hide-details="auto"
+                    :value="title"
+                ></v-text-field>
             </v-card-text>
 
             <v-divider></v-divider>
             <v-btn
                 color="primary"
                 text
-                @click="dialog = false"
+                @click="test()"
             >
-                확인
+                설정
             </v-btn>
             <v-card-actions>
             <v-spacer></v-spacer>
@@ -46,6 +50,9 @@
   import { mapGetters } from 'vuex';
 
   export default {
+    data: () => ({
+        title: ''
+    }),
     computed: {
       ...mapGetters('goal', [
         'GE_DAY',
@@ -61,6 +68,11 @@
       k() {
         return this.GE_KINDS;
       },
+    },
+    methods: {
+        test() {
+            console.log(this.title);
+        }
     }
   }
 </script>

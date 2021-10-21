@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import SetGoal from "../views/SetGoal.vue";
+import ExerciseRoute from "./exercise";
 
 Vue.use(VueRouter);
 
@@ -24,7 +25,8 @@ const routes = [
     path: "/setGoal",
     name: "SetGoal",
     component: SetGoal,
-  }
+  },
+  ...ExerciseRoute
 ];
 
 const router = new VueRouter({
