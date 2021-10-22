@@ -20,7 +20,7 @@ export default {
     methods: {
         record: function(id) {
             console.log(id);
-            this.$router.push({name: 'ExeerciseRecord', params: {id: id}})
+            this.$router.push({name: 'ExerciseRecord', params: {id: id}})
         }
     }
 }
