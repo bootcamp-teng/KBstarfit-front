@@ -4,6 +4,7 @@
   <home-goal-status></home-goal-status>
   <home-goal-card-list></home-goal-card-list>
   <home-point-card></home-point-card>
+  <goal-floating-button></goal-floating-button>
 </div>
 </template>
 
@@ -12,6 +13,7 @@ import NameCard from '../components/home/NameCard.vue';
 import HomeGoalStatus from '../components/home/HomeGoalStatus.vue';
 import HomeGoalCardList from '../components/home/HomeGoalCardList.vue';
 import HomePointCard from '../components/home/HomePointCard.vue';
+import GoalFloatingButton from '../components/home/GoalFloatingButton.vue';
 
 export default {
   name: "Home",
@@ -19,7 +21,8 @@ export default {
     NameCard,
     HomeGoalStatus,
     HomeGoalCardList,
-    HomePointCard
+    HomePointCard,
+    GoalFloatingButton
   },
 };
 </script>
