@@ -47,7 +47,7 @@ const setGoal = {
         AC_SET_STEPS: ({ commit }, payload) => commit('MU_SET_STEPS', payload),
         AC_SET_TYPE: ({ commit }, payload) => commit('MU_SET_TYPE', payload),
         AC_GET_GOALS:  async ({ commit }) => {
-            const { data } = await axios.get('http://localhost:8084/v1/goals');
+            const { data } = await axios.get('http://teng.169.56.174.139.nip.io/starfitgoal/v1/goals');
             commit('MU_GET_GOALS', data);
         },
         AC_SET_TYPE_LIST: ({ state, commit }) => {
@@ -80,7 +80,7 @@ const setGoal = {
                 "userId": "userId"
             }
             
-            await axios.post('http://localhost:8084/v1/usergoal', params);
+            await axios.post('http://teng.169.56.174.139.nip.io/starfitgoal/v1/usergoal', params);
         }
     }
 }
