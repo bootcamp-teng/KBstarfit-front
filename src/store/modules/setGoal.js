@@ -76,11 +76,11 @@ const setGoal = {
         },
         AC_SUBMIT_GOAL: async ({ state }) => {
             const params = {
-                "benefitCode": "benefitCode",
+                "benefitCode": "1",
                 "goalId": state.goalId,
                 "period": state.period,
                 "title": state.title,
-                "loginId": "loginId",
+                "userId": "1",
                 "dayExerAmt": state.steps
             }
             
