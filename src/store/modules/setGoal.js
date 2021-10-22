@@ -52,8 +52,8 @@ const setGoal = {
         },
         AC_SET_TYPE_LIST: ({ state, commit }) => {
             let typeList = [];
-            state.goals.forEach(({ type }) => {
-                typeList.push(type);
+            state.goals.forEach(({ exerType }) => {
+                typeList.push(exerType);
             });
             commit('MU_SET_TYPE_LIST', typeList)
         },
@@ -62,6 +62,7 @@ const setGoal = {
             const min = state.goals[state.goalId - 1]['minExerAmt'];
             const max = state.goals[state.goalId - 1]['maxExerAmt'];
             const std = state.goals[state.goalId - 1]['stdExerAmt'];
+            console.log(stepList);
             for (var i=min; i<=max; i=i+std) stepList.push(i);
 
             commit('MU_SET_STEP_LIST', stepList);
