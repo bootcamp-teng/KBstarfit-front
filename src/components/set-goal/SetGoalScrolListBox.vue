@@ -26,7 +26,7 @@
 
   export default {
     data: () => ({
-        period: Array.from({ length: 91 }, (v, i) => i+10),
+        period: Array.from({ length: 20 }, (_, i) => 10 + (i * 10)),
     }),
     computed: {
       ...mapGetters('setGoal', [
