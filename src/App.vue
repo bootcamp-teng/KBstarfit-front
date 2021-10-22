@@ -27,7 +27,8 @@ export default {
 
 <style>
 * {
-  font-family: 'Nanum Gothic', sans-serif;
+  /* font-family: 'Nanum Gothic', sans-serif; */
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .maincolor {

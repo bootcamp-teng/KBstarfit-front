@@ -1,8 +1,8 @@
 <template>
   <v-footer
     color="#EFB775"
-    app
     padless
+    class="mt-5"
   >
     <v-row
       justify="center"
@@ -15,6 +15,7 @@
         text
         rounded
         class="my-2"
+        x-small
       >
         {{ link }}
       </v-btn>
