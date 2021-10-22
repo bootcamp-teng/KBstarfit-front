@@ -22,7 +22,6 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex';
-//   import $ from "jquery";
 
   export default {
     data: () => ({
@@ -57,6 +56,7 @@
           'AC_SET_STEP_LIST',
           'AC_SET_GOAL_ID',
           'AC_SET_POINT',
+          'AC_SET_SELEC_ALL_YN',
         ]),
         selected(d, i) {
             if (this.GE_LIST_BOX_TYPE === 1) {
@@ -66,9 +66,12 @@
             if (this.GE_LIST_BOX_TYPE === 2) {
               this.AC_SET_STEPS(d);
               this.AC_SET_POINT(d);
+              this.AC_SET_SELEC_ALL_YN('Y');
             }
             if (this.GE_LIST_BOX_TYPE === 3) {
               this.AC_SET_TYPE(d);
+              this.AC_SET_STEPS('');
+              this.AC_SET_SELEC_ALL_YN('N');
               this.AC_SET_GOAL_ID(i + 1);
               this.AC_SET_STEP_LIST(this.goals);
             }

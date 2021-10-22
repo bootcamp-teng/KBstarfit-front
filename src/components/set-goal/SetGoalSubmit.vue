@@ -6,8 +6,9 @@
         >
         <template v-slot:activator="{ on, attrs }">
             <v-btn
+            id="submitBtn"
+            depressed
             color="primary"
-            dark
             v-bind="attrs"
             v-on="on"
             >
@@ -46,9 +47,21 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
+  import $ from "jquery";
 
   export default {
+    mounted: function() {
+      $('#submitBtn').addClass('v-btn--disabled');
+    },
+    computed: {
+      ...mapGetters('setGoal', [
+        'GE_SELECT_ALL_YN',
+      ]),
+      selectAllYn() {
+          return this.GE_SELECT_ALL_YN;
+      }
+    },
     data: () => ({
         title: ''
     }),
@@ -65,6 +78,12 @@
       goHome() {
           this.$router.push('/');
       }
+    },
+    watch: {
+        selectAllYn: function (newVal) {
+            if (newVal === 'N') $('#submitBtn').addClass('v-btn--disabled');
+            if (newVal === 'Y') $('#submitBtn').removeClass('v-btn--disabled');
+        }
     }
   }
 </script>
