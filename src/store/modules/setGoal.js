@@ -62,14 +62,13 @@ const setGoal = {
             const min = state.goals[state.goalId - 1]['minExerAmt'];
             const max = state.goals[state.goalId - 1]['maxExerAmt'];
             const std = state.goals[state.goalId - 1]['stdExerAmt'];
-            console.log(stepList);
             for (var i=min; i<=max; i=i+std) stepList.push(i);
 
             commit('MU_SET_STEP_LIST', stepList);
         },
         AC_SET_GOAL_ID: ({ commit }, payload) => commit('MU_SET_GOAL_ID', payload),
         AC_SET_POINT: ({ state, commit }, payload) => {
-            const point = (parseInt(payload) / parseInt(state.goals[state.goalId - 1]['stdExerAmt'])) * parseInt(state.goals[state.goalId - 1]['stdExerPoint']);
+            const point = (parseInt(payload) / parseInt(state.goals[state.goalId - 1]['stdExerAmt'])) * parseInt(state.goals[state.goalId - 1]['stdPoint']);
             commit('MU_SET_POINT', point);
         },
         AC_SUBMIT_GOAL: async ({ state }) => {
