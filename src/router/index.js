@@ -29,6 +29,7 @@ const routes = [
     name: "Point",
     component: Point,
   },
+  {
     path: "/setGoal",
     name: "SetGoal",
     component: SetGoal,
