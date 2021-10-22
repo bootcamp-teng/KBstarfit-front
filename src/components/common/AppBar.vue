@@ -6,8 +6,8 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn icon>
-      <v-icon>mdi-magnify</v-icon>
+    <v-btn icon @click="pushLogin">
+      <v-icon>mdi-account-key</v-icon>
     </v-btn>
 
     <v-btn icon>
@@ -19,6 +19,21 @@
     </v-btn>
   </v-app-bar>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      
+    }
+  },
+  methods: {
+    pushLogin: function() {
+      this.$router.push({name: 'Login'});
+    }
+  }
+}
+</script>
 
 <style scoped>
 * {
