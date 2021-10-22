@@ -18,7 +18,7 @@
       포인트로 혜택 받기 💰
     </v-btn>
   </div>
-</template>
+</template> 
 
 <script>
   export default {
