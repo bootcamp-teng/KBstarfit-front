@@ -59,16 +59,16 @@ const setGoal = {
         },
         AC_SET_STEP_LIST: ({ state, commit }) => {
             let stepList = [];
-            const min = state.goals[state.goalId - 1]['amount_min'];
-            const max = state.goals[state.goalId - 1]['amount_max'];
-            const std = state.goals[state.goalId - 1]['stdamount'];
+            const min = state.goals[state.goalId - 1]['minExerAmt'];
+            const max = state.goals[state.goalId - 1]['maxExerAmt'];
+            const std = state.goals[state.goalId - 1]['stdExerAmt'];
             for (var i=min; i<=max; i=i+std) stepList.push(i);
 
             commit('MU_SET_STEP_LIST', stepList);
         },
         AC_SET_GOAL_ID: ({ commit }, payload) => commit('MU_SET_GOAL_ID', payload),
         AC_SET_POINT: ({ state, commit }, payload) => {
-            const point = (parseInt(payload) / parseInt(state.goals[state.goalId - 1]['stdamount'])) * parseInt(state.goals[state.goalId - 1]['stdPoint']);
+            const point = (parseInt(payload) / parseInt(state.goals[state.goalId - 1]['stdExerAmt'])) * parseInt(state.goals[state.goalId - 1]['stdExerPoint']);
             commit('MU_SET_POINT', point);
         },
         AC_SUBMIT_GOAL: async ({ state }) => {
@@ -77,7 +77,8 @@ const setGoal = {
                 "goalId": state.goalId,
                 "period": state.period,
                 "title": state.title,
-                "userId": "userId"
+                "loginId": "loginId",
+                "dayExerAmt": state.steps
             }
             
             await axios.post('http://teng.169.56.174.139.nip.io/starfitgoal/v1/usergoal', params);
