@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Point from "../views/Point.vue";
 import SetGoal from "../views/SetGoal.vue";
 import PointUsage from "../views/PointUsage.vue";
 import ExerciseRoute from "./exercise";
@@ -22,6 +23,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/point",
+    name: "Point",
+    component: Point,
   },
   {
     path: "/setGoal",

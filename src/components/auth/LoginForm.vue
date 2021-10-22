@@ -30,6 +30,9 @@
     <v-btn rounded block outlined @click="join" class="mb-4" color="#EFB775">
       회원가입
     </v-btn>
+    <v-btn rounded block @click="google" class="mb-4" color="#EFB775">
+      구글 피트니스
+    </v-btn>
   </form>
 </template>
 
@@ -100,7 +103,21 @@ export default {
       this.checkbox = false;
     },
     join() {
-        this.$router.push({name: 'Join'});
+      this.$router.push({ name: "Join" });
+    },
+    google() {
+        const client_id= '515071488860-s2aoiepptpuhc5tkj18qj763iq1b1lf9.apps.googleusercontent.com';
+        const redirect_uri= 'http://localhost:8080/auth/google/callback';
+        const response_type= 'code';
+        const scope= 'https://www.googleapis.com/auth/fitness.activity.read';
+        this.$axios.get(`https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`)
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+
     }
   },
 };
