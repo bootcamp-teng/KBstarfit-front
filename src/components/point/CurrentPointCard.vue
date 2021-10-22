@@ -6,11 +6,17 @@
         <p class="text-h4 spacing-playground mb-0">5700</p>
       </v-card-title>
       <v-card-actions>
-        <v-btn text >
-          포인트로 혜택 받으러 가기 💰 >
-        </v-btn>
+        
       </v-card-actions>
     </v-card>
+    <v-btn
+      color="primary"
+      class="mt-2"
+      dark
+      @click="dialog2 = true"
+    >
+      포인트로 혜택 받기 💰
+    </v-btn>
   </div>
 </template>
 

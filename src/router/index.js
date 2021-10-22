@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import PointHistory from "../views/PointHistory.vue";
+import Point from "../views/Point.vue";
 
 Vue.use(VueRouter);
 
@@ -22,8 +22,8 @@ const routes = [
   },
   {
     path: "/point",
-    name: "PointHistory",
-    component: PointHistory,
+    name: "Point",
+    component: Point,
   },
 ];
 
