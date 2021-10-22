@@ -1,8 +1,7 @@
 <template>
     <div class="container" style="padding-left: 100px;">
-        <div class="inline-block-div" style="margin-right: 50px;"><v-btn depressed>취소</v-btn></div>
+        <div class="inline-block-div" style="margin-right: 50px;"><v-btn depressed @click="goHome()">취소</v-btn></div>
         <v-dialog
-            
             width="500"
         >
         <template v-slot:activator="{ on, attrs }">
@@ -26,6 +25,7 @@
                     label="목표 제목"
                     hide-details="auto"
                     :value="title"
+                    v-model="title"
                 ></v-text-field>
             </v-card-text>
 
@@ -33,7 +33,7 @@
             <v-btn
                 color="primary"
                 text
-                @click="test()"
+                @click="submitGoal()"
             >
                 설정
             </v-btn>
@@ -42,37 +42,29 @@
             </v-card-actions>
         </v-card>
         </v-dialog>
-        
     </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+  import { mapActions } from 'vuex';
 
   export default {
     data: () => ({
         title: ''
     }),
-    computed: {
-      ...mapGetters('goal', [
-        'GE_DAY',
-        'GE_STEPS',
-        'GE_KINDS'
-      ]),
-      d() {
-        return this.GE_DAY;
-      },
-      s() {
-        return this.GE_STEPS; 
-      },
-      k() {
-        return this.GE_KINDS;
-      },
-    },
     methods: {
-        test() {
-            console.log(this.title);
-        }
+      ...mapActions('setGoal', [
+        'AC_SET_TITLE',
+        'AC_SUBMIT_GOAL',
+      ]),
+      submitGoal() {
+        this.AC_SET_TITLE(this.title);
+        this.AC_SUBMIT_GOAL();
+        this.$router.push('/');
+      },
+      goHome() {
+          this.$router.push('/');
+      }
     }
   }
 </script>
