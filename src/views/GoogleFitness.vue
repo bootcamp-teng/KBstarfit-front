@@ -13,7 +13,7 @@ export default {
         const code = this.$route.query.code;
         const client_id = '515071488860-s2aoiepptpuhc5tkj18qj763iq1b1lf9.apps.googleusercontent.com';
         const client_secret = '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';
-        const redirect_uri= 'http://localhost:8080/auth/google/callback';
+        const redirect_uri= 'https://teng.169.56.174.139.nip.io/auth/google/callback';
         const grant_type = 'authorization_code';
 
         this.$axios.post(`https://www.googleapis.com/oauth2/v4/token?code=${code}&client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}&grant_type=${grant_type}`)
