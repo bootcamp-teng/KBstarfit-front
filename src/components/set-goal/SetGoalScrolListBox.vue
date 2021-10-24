@@ -1,27 +1,43 @@
 <template>
     <div class="container">
-        <div v-if="listBoxType === 1" style="padding-left: 120px;">
-            <select size="10" class="form-control" style="height: 200px; width: 100px;">
+        <div v-if="listBoxType === 1" style="padding-left: 150px;">
+          <div style="height: 200px; width: 100px; overflow: scroll; border: 1px solid #ccc;">
+            <ul style="list-style: none; padding-left: 0px;">
+              <li class="m-text list-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in period">{{ d }}</li>
+            </ul>
+          </div>
+            <!-- <select size="10" class="form-control" style="height: 200px; width: 100px;">
                 <option class="option-text m-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in period">{{ d }}</option>
-            </select>
+            </select> -->
         </div>
 
-        <div v-if="listBoxType === 2" style="padding-left: 120px;">
-            <select size="10" class="form-control" style="height: 200px; width: 100px;">
+        <div v-if="listBoxType === 2" style="padding-left: 150px;">
+          <div style="height: 200px; width: 100px; overflow: scroll; border: 1px solid #ccc;">
+            <ul style="list-style: none; padding-left: 0px;">
+              <li class="m-text list-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in stepList">{{ d }}</li>
+            </ul>
+          </div>
+            <!-- <select size="10" class="form-control" style="height: 200px; width: 100px;">
                 <option class="option-text m-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in stepList">{{ d }}</option>
-            </select>
+            </select> -->
         </div>
 
-        <div v-if="listBoxType === 3" style="padding-left: 120px;">
-            <select size="10" class="form-control" style="height: 200px; width: 100px;">
+        <div v-if="listBoxType === 3" style="padding-left: 150px;">
+          <div style="height: 200px; width: 100px; overflow: scroll; border: 1px solid #ccc;">
+            <ul style="list-style: none; padding-left: 0px;">
+              <li class="m-text list-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in typeList">{{ d }}</li>
+            </ul>
+          </div>
+            <!-- <select size="10" class="form-control" style="height: 200px; width: 100px;">
                 <option class="option-text m-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in typeList">{{ d }}</option>
-            </select>
+            </select> -->
         </div>
     </div>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex';
+  import $ from "jquery";
 
   export default {
     data: () => ({
@@ -59,6 +75,8 @@
           'AC_SET_SELEC_ALL_YN',
         ]),
         selected(d, i) {
+            $('li').removeClass('on');
+            $($('li').get(i)).addClass('on');
             if (this.GE_LIST_BOX_TYPE === 1) {
               this.AC_SET_PERIOD(d);
               this.AC_SET_TYPE_LIST();
@@ -70,7 +88,7 @@
             }
             if (this.GE_LIST_BOX_TYPE === 3) {
               this.AC_SET_TYPE(d);
-              this.AC_SET_STEPS('');
+              this.AC_SET_STEPS(null);
               this.AC_SET_SELEC_ALL_YN('N');
               this.AC_SET_GOAL_ID(i + 1);
               this.AC_SET_STEP_LIST(this.goals);
@@ -81,16 +99,11 @@
 </script>
 
 <style scoped>
-    select {
-        padding-top: 100px;
+    li.on {
+      background-color: grey;
     }
 
-    select option:checked {
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
-
-    .option-text{
+    .list-text{
         text-align: center;
     }
 
