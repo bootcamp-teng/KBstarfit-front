@@ -42,9 +42,19 @@
                   max-width="290"
                 >
                   <v-card>
-                    <v-card-title class="text-h5">
+                    <v-card-title
+                      v-if="success === true"
+                      class="text-h5">
                       등록 완료
                     </v-card-title>
+                    <v-card-title
+                      v-if="success === false"
+                      class="text-h5">
+                      등록 실패
+                    </v-card-title>
+                    <v-card-text>
+                      {{ errorMsg }}
+                    </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
                       <v-btn
@@ -80,10 +90,14 @@
         'GE_SELECT_ALL_YN',
         'GE_STEPS',
         'GE_TITLE',
+        'GE_SUCCESS',
+        'GE_ERROR_MSG',
       ]),
       selectAllYn() { return this.GE_SELECT_ALL_YN; },
       steps() { return this.GE_STEPS; },
-      title() { return this.GE_TITLE; }
+      title() { return this.GE_TITLE; },
+      success() { return this.GE_SUCCESS; },
+      errorMsg() { return this.GE_ERROR_MSG; },
     },
     methods: {
       ...mapActions('setGoal', [

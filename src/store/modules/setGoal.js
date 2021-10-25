@@ -17,6 +17,8 @@ const setGoal = {
         point: 0,
         selectAllYn: 'N',
         unit: null,
+        success: true,
+        errorMsg: '',
     },
     getters: {
         GE_LIST_BOX_TYPE: state => state.listBoxType,
@@ -31,6 +33,8 @@ const setGoal = {
         GE_POINT: state => state.point,
         GE_SELECT_ALL_YN: state => state.selectAllYn,
         GE_UNIT: state => state.unit,
+        GE_SUCCESS: state => state.success,
+        GE_ERROR_MSG: state => state.errorMsg,
     },
     mutations: {
         MU_SET_LIST_BOX_TYPE: (state, payload) => state.listBoxType = payload,
@@ -45,6 +49,8 @@ const setGoal = {
         MU_SET_POINT: (state, payload) => state.point = payload,
         MU_SET_SELECT_ALL_YN: (state, payload) => state.selectAllYn = payload,
         MU_SET_UNIT: (state, payload) => state.unit = payload,
+        MU_SET_SUCCESS: (state, payload) => state.success = payload,
+        MU_SET_ERROR_MSG: (state, payload) => state.errorMsg = payload,
     },
     actions: {
         AC_SET_LIST_BOX_TYPE: ({ commit }, payload) => commit('MU_SET_LIST_BOX_TYPE', payload),
@@ -78,17 +84,31 @@ const setGoal = {
             const point = (parseInt(payload) / parseInt(state.goals[state.goalId - 1]['stdExerAmt'])) * parseInt(state.goals[state.goalId - 1]['stdPoint']);
             commit('MU_SET_POINT', point);
         },
-        AC_SUBMIT_GOAL: async ({ state }) => {
+        AC_SUBMIT_GOAL: async ({ state, commit }) => {
             const params = {
                 "benefitCode": "1",
                 "goalId": state.goalId,
                 "period": state.period,
                 "title": state.title,
-                "userId": "1",
+                "userId": "15",
                 "dayExerAmt": state.steps
             }
             
-            await axios.post('http://teng.169.56.174.139.nip.io/starfitgoal/v1/usergoal', params);
+            const res = await axios.post('http://teng.169.56.174.139.nip.io/starfitgoal/v1/usergoal', params);
+
+            if (res.status === 201) {
+                commit('MU_SET_SUCCESS', false);
+                if (res.data.error === "Created") commit('MU_SET_ERROR_MSG', '이미 목표를 진행중인 사용자입니다.');
+            }
+
+            commit('MU_SET_TITLE', '');
+            commit('MU_SET_PERIOD', null);
+            commit('MU_SET_TYPE', null);
+            commit('MU_SET_STEPS', null);
+            commit('MU_SET_POINT', 0);
+            commit('MU_SET_TYPE_LIST', []);
+            commit('MU_SET_STEP_LIST', []);
+            commit('MU_SET_LIST_BOX_TYPE', 0);
         },
         AC_SET_SELEC_ALL_YN: ({ commit }, payload) => commit('MU_SET_SELECT_ALL_YN', payload),
     }
