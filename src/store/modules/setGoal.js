@@ -14,7 +14,9 @@ const setGoal = {
         typeList: [],
         steps: null,
         stepList: [],
-        point: 0
+        point: 0,
+        selectAllYn: 'N',
+        unit: null,
     },
     getters: {
         GE_LIST_BOX_TYPE: state => state.listBoxType,
@@ -27,6 +29,8 @@ const setGoal = {
         GE_STEP_LIST: state => state.stepList,
         GE_GOAL_ID: state => state.goalId,
         GE_POINT: state => state.point,
+        GE_SELECT_ALL_YN: state => state.selectAllYn,
+        GE_UNIT: state => state.unit,
     },
     mutations: {
         MU_SET_LIST_BOX_TYPE: (state, payload) => state.listBoxType = payload,
@@ -39,6 +43,8 @@ const setGoal = {
         MU_SET_STEP_LIST: (state, payload) => state.stepList = payload,
         MU_SET_GOAL_ID: (state, payload) => state.goalId = payload,
         MU_SET_POINT: (state, payload) => state.point = payload,
+        MU_SET_SELECT_ALL_YN: (state, payload) => state.selectAllYn = payload,
+        MU_SET_UNIT: (state, payload) => state.unit = payload,
     },
     actions: {
         AC_SET_LIST_BOX_TYPE: ({ commit }, payload) => commit('MU_SET_LIST_BOX_TYPE', payload),
@@ -63,6 +69,7 @@ const setGoal = {
             const max = state.goals[state.goalId - 1]['maxExerAmt'];
             const std = state.goals[state.goalId - 1]['stdExerAmt'];
             for (var i=min; i<=max; i=i+std) stepList.push(i);
+            commit('MU_SET_UNIT', state.goals[state.goalId - 1]['exerUnit']);
 
             commit('MU_SET_STEP_LIST', stepList);
         },
@@ -73,16 +80,17 @@ const setGoal = {
         },
         AC_SUBMIT_GOAL: async ({ state }) => {
             const params = {
-                "benefitCode": "benefitCode",
+                "benefitCode": "1",
                 "goalId": state.goalId,
                 "period": state.period,
                 "title": state.title,
-                "loginId": "loginId",
+                "userId": "1",
                 "dayExerAmt": state.steps
             }
             
             await axios.post('http://teng.169.56.174.139.nip.io/starfitgoal/v1/usergoal', params);
-        }
+        },
+        AC_SET_SELEC_ALL_YN: ({ commit }, payload) => commit('MU_SET_SELECT_ALL_YN', payload),
     }
 }
 
