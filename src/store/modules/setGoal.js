@@ -96,6 +96,7 @@ const setGoal = {
             
             const res = await axios.post('http://teng.169.56.174.139.nip.io/starfitgoal/v1/usergoal', params);
 
+            if (res.status === 200) commit('MU_SET_SUCCESS', true);
             if (res.status === 201) {
                 commit('MU_SET_SUCCESS', false);
                 if (res.data.error === "Created") commit('MU_SET_ERROR_MSG', '이미 목표를 진행중인 사용자입니다.');

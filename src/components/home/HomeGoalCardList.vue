@@ -29,7 +29,6 @@ export default {
           statusCode: "0",
           title: "하루 6000 걸음 걸어서 돈 벌자!",
           userId: 1,
-
         },
         {
           benefitCode: "0",
