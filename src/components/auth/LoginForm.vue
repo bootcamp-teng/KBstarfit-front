@@ -30,7 +30,7 @@
     <v-btn rounded block outlined @click="join" class="mb-4" color="#EFB775">
       회원가입
     </v-btn>
-    <v-btn rounded block class="mb-4" color="#EFB775" :href="`https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`">
+    <v-btn rounded block class="mb-4" color="#EFB775" :href="`https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}&access_type=${access_type}&approval_prompt=${approval_prompt}`">
       구글 피트니스
     </v-btn>
   </form>
@@ -65,6 +65,8 @@ export default {
     redirect_uri: "http://localhost:8080/auth/google/callback",
     response_type: "code",
     scope: "https://www.googleapis.com/auth/fitness.activity.read",
+    access_type: "offline",
+    approval_prompt: "force"
   }),
 
   computed: {
@@ -109,16 +111,6 @@ export default {
     },
     join() {
       this.$router.push({ name: "Join" });
-    },
-    google() {
-      // window.open(`https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`);
-      // this.$axios.get(`https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`)
-      // .then((res) => {
-      //     console.log(res);
-      // })
-      // .catch((err) => {
-      //     console.log(err);
-      // })
     },
   },
 };

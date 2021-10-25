@@ -17,19 +17,19 @@ const homeStore = {
     }
   },
   mutations: {
-      GET_USER_GOAL_LIST({state}, goalList) {
+      GET_USER_GOAL_LIST(state, goalList) {
           state.goalList = goalList;
       },
-      GET_USER_POINT({state}, point) {
+      GET_USER_POINT(state, point) {
           state.point = point;
       }
   },
   actions: {
       getUserGoalList ({commit}, id) {
-          axios.get('http://teng.169.56.174.139.nip.io/starfitexercise/v1/exerciselist/' + id)
-          .then((res) => {
-              console.log(res);
-              commit('GET_USER_GOAL_LIST', res);
+          axios.get('http://teng.169.56.174.139.nip.io/starfitgoal/v1/usergoalsbyid/' + id)
+          .then(({data}) => {
+              console.log(data);
+              commit('GET_USER_GOAL_LIST', data);
           })
           .catch((err) => {
               console.log(err);
@@ -37,11 +37,11 @@ const homeStore = {
       },
       getUserPoint ({commit}, id) {
           axios.get('http://teng.169.56.174.139.nip.io/starfitpoint/v1/current/' + id)
-          .then((res) => {
-              console.log(res);
-              commit('GET_USER_POINT', res.currentPoint);
+          .then(({data}) => {
+              console.log(data);
+              commit('GET_USER_POINT', data[0].currentPoint);
           })
-      }
+      },
   },
   modules: {},
 };

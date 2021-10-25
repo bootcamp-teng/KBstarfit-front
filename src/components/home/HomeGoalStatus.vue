@@ -22,9 +22,6 @@ export default {
   methods: {
     ...mapActions(["getCurrentAmount"]),
   },
-  components: {
-
-  }
 };
 </script>
 

@@ -1,5 +1,5 @@
 import Vue from "vue";
-import axios from "axios";
+import axios from "../../http/axios";
 import VueCookies from "vue-cookies";
 
 Vue.use(VueCookies);
@@ -63,7 +63,11 @@ const exerciseStore = {
         .then(({ data }) => {
           console.log(data);
 
-          const amount = data.bucket[0].dataset[0].point[0].value[0].intVal;
+          const amountArray = data.bucket[0].dataset[0].point;
+          var amount = 0;
+          if(amountArray.length != 0) amount = amountArray[0].value[0].intVal
+
+          console.log(amount);
 
           commit("SET_CURRENT_AMOUNT", amount);
         })
@@ -71,6 +75,24 @@ const exerciseStore = {
           console.log(err);
         });
     },
+    // updateAmount({commit}, exerAmt) {
+    //   const userId = 1;
+
+    //   const payload = {
+    //     exerAmt,
+    //     userId
+    //   }
+    //   axios.put('http://teng.169.56.174.139.nip.io/starfitexercise/v1/exercise', payload)
+    //   .then(({data}) => {
+    //     console.log(data);
+    //     /*
+    //       포인트를 지금 받았으면 알려주기, 아니면 x
+    //     */
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
+    // }
   },
   modules: {},
 };

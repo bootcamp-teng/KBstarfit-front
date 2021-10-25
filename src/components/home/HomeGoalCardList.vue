@@ -1,11 +1,11 @@
 <template>
   <div class="mt-2">
     <span class="body-2 ml-5 mb-0">나의 목표 🚩</span>
-    <v-slide-group center-active>
-      <v-slide-item v-for="goal in goalList" :key="goal.id">
+    <v-row dense>
+      <v-col v-for="goal in goalList" :key="goal.id">
         <home-goal-card :goal="goal"></home-goal-card>
-      </v-slide-item>
-    </v-slide-group>
+      </v-col>
+    </v-row>
     <no-goal-card v-if="goalList.length == 0"></no-goal-card>
   </div>
 </template>
