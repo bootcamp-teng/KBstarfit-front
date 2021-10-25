@@ -1,26 +1,26 @@
 <template>
 <div>
   <set-goal-body></set-goal-body>
-  <reward-description></reward-description>
-  <scrol-list-box></scrol-list-box>
-  <goal-button></goal-button>
+  <set-goal-reward-description></set-goal-reward-description>
+  <set-goal-scrol-list-box></set-goal-scrol-list-box>
+  <set-goal-submit></set-goal-submit>
 </div>
 </template>
 
 <script>
-import SetGoalBody from '../components/goal/SetGoalBody.vue';
-import RewardDescription from '../components/goal/RewardDescription.vue';
-import GoalButton from '../components/goal/GoalButton.vue';
-import ScrolListBox from '../components/goal/ScrolListBox.vue';
+import SetGoalBody from '../components/set-goal/SetGoalBody.vue';
+import SetGoalRewardDescription from '../components/set-goal/SetGoalRewardDescription.vue';
+import SetGoalSubmit from '../components/set-goal/SetGoalSubmit.vue';
+import SetGoalScrolListBox from '../components/set-goal/SetGoalScrolListBox.vue';
 
 export default {
-  name: "Home",
+  name: "SetGoal",
 
   components: {
     SetGoalBody,
-    RewardDescription,
-    GoalButton,
-    ScrolListBox,
+    SetGoalRewardDescription,
+    SetGoalSubmit,
+    SetGoalScrolListBox,
   },
 };
 </script>

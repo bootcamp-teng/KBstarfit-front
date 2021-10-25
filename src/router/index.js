@@ -1,9 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Point from "../views/Point.vue";
 import SetGoal from "../views/SetGoal.vue";
+import PointUsage from "../views/PointUsage.vue";
 import ExerciseRoute from "./exercise";
 import AuthRoute from "./auth";
+import Rank from "./rank";
 
 Vue.use(VueRouter);
 
@@ -23,12 +26,23 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
+    path: "/point",
+    name: "Point",
+    component: Point,
+  },
+  {
     path: "/setGoal",
     name: "SetGoal",
     component: SetGoal,
   },
+  {
+    path: "/pointUsage",
+    name: "PointUsage",
+    component: PointUsage,
+  },
   ...ExerciseRoute,
-  ...AuthRoute
+  ...AuthRoute,
+  ...Rank
 ];
 
 const router = new VueRouter({

@@ -20,8 +20,9 @@ const homeStore = {
       GET_USER_GOAL_LIST(state, goalList) {
           state.goalList = goalList;
       },
-      GET_USER_POINT(state, point) {
-          state.point = point;
+      GET_USER_POINT(state, currentPoint) {
+          console.log(currentPoint);
+          state.point = currentPoint;
       }
   },
   actions: {
@@ -39,6 +40,10 @@ const homeStore = {
           axios.get('http://teng.169.56.174.139.nip.io/starfitpoint/v1/current/' + id)
           .then(({data}) => {
               console.log(data);
+<<<<<<< HEAD
+=======
+              console.log(data[0].currentPoint)
+>>>>>>> 0ade39a40141ecf4458f00a587f44cee358be17d
               commit('GET_USER_POINT', data[0].currentPoint);
           })
       },
