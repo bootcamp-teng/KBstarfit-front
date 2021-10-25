@@ -1,10 +1,19 @@
 <template>
   <div class="mt-2">
     <span class="body-2 ml-5 mb-0">나의 목표 🚩</span>
-    <v-row dense>
+    <v-row dense justify="center">
+      <v-sheet color="#FFFAF6">
+
       <v-col v-for="goal in goalList" :key="goal.id">
+        <v-slide-group show-arrows multiple>
+
+          <v-slide-item class="ma-5">
+
         <home-goal-card :goal="goal"></home-goal-card>
+          </v-slide-item>
+        </v-slide-group>
       </v-col>
+      </v-sheet>
     </v-row>
     <no-goal-card v-if="goalList.length == 0"></no-goal-card>
   </div>

@@ -60,7 +60,7 @@ const exerciseStore = {
           body,
           config
         )
-        .then(({ data }) => {
+        .then(async ({ data }) => {
           console.log(data);
 
           const amountArray = data.bucket[0].dataset[0].point;
@@ -69,7 +69,8 @@ const exerciseStore = {
 
           console.log(amount);
 
-          commit("SET_CURRENT_AMOUNT", amount);
+          await commit("SET_CURRENT_AMOUNT", amount);
+          
         })
         .catch((err) => {
           console.log(err);
@@ -82,7 +83,7 @@ const exerciseStore = {
     //     exerAmt,
     //     userId
     //   }
-    //   axios.put('http://teng.169.56.174.139.nip.io/starfitexercise/v1/exercise', payload)
+    //   axios.post('http://teng.169.56.174.139.nip.io/starfitexercise/v1/exercise', payload)
     //   .then(({data}) => {
     //     console.log(data);
     //     /*
