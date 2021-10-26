@@ -25,7 +25,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['point'])
+        ...mapGetters(['point', 'user'])
     },
     methods: {
         ...mapActions(['getUserPoint']),
@@ -40,7 +40,7 @@ export default {
         }
     },
     created: function(){
-        this.getUserPoint(1);
+        this.getUserPoint(this.user.id);
     }
 }
 </script>
