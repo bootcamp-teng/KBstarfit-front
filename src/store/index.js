@@ -4,6 +4,7 @@ import exerciseStore from './modules/exercise';
 
 import setGoal from "./modules/setGoal";
 import homeStore from './modules/home';
+import pointStore from './modules/point';
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
   modules: {
     exerciseStore: exerciseStore,
     setGoal,
-    homeStore: homeStore
+    homeStore: homeStore,
+    pointStore: pointStore
   },
 });
