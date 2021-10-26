@@ -1,22 +1,20 @@
 <template>
   <div class="about">
-    <h1>This is an 운동기록 page</h1>
+      <current-goal-card></current-goal-card>
+  <exercise-history-card></exercise-history-card>
   </div>
 </template>
 
 <script>
+import CurrentGoalCard from '../components/exercise/CurrentGoalCard.vue';
+import ExerciseHistoryCard from '../components/exercise/ExerciseHistoryCard.vue';
+
 export default {
-    data() {
-        return {
-        }
-    },
-    created: function() {
-        console.log(this.$route);
-    },
-    watch: {
-        $route: function (to, from) {
-            console.log(to + "에서 " + from + "으로 이동");
-        }
-    }
-}
+  name: "ExerciseHistory",
+
+  components: {
+    CurrentGoalCard,
+    ExerciseHistoryCard,
+  },
+};
 </script>

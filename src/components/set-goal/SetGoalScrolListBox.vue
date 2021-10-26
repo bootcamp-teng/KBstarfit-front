@@ -73,6 +73,7 @@
           'AC_SET_GOAL_ID',
           'AC_SET_POINT',
           'AC_SET_SELEC_ALL_YN',
+          'AC_SET_CUR_I',
         ]),
         selected(d, i) {
             $('li').removeClass('on');
@@ -87,10 +88,12 @@
               this.AC_SET_SELEC_ALL_YN('Y');
             }
             if (this.GE_LIST_BOX_TYPE === 3) {
+              const goalId = parseInt(this.goals[i].id);
               this.AC_SET_TYPE(d);
               this.AC_SET_STEPS(null);
               this.AC_SET_SELEC_ALL_YN('N');
-              this.AC_SET_GOAL_ID(i + 1);
+              this.AC_SET_CUR_I(i + 1);
+              this.AC_SET_GOAL_ID(goalId);
               this.AC_SET_STEP_LIST(this.goals);
             }
         }
