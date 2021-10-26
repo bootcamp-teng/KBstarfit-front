@@ -1,19 +1,20 @@
 <template>
   <div class="about">
-    <character-choice></character-choice>
+    <character-card></character-card>
+    <join-form></join-form>
   </div>
 </template>
 
 <script>
-import CharacterChoice from "../components/auth/CharacterChoice.vue";
-export default ({
-    data() {
-        return {
-            
-        }
-    },
-    components: {
-        CharacterChoice
-    }
-})
+import CharacterCard from "../components/auth/CharacterCard.vue";
+import JoinForm from "../components/auth/JoinForm.vue";
+export default {
+  data() {
+    return {};
+  },
+  components: {
+    CharacterCard,
+    JoinForm,
+  },
+};
 </script>

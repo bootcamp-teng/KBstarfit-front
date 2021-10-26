@@ -2,6 +2,7 @@
   <v-app style="background: #FFFAF6">
     <app-bar></app-bar>
     <v-main>
+    <!-- <success-alert></success-alert> -->
       <router-view />
     </v-main>
     <Footer></Footer>
@@ -11,6 +12,7 @@
 <script>
 import AppBar from './components/common/AppBar.vue';
 import Footer from './components/common/Footer.vue';
+// import SuccessAlert from './components/alert/SuccessAlert.vue';
 
 export default {
   name: "App",
@@ -20,7 +22,8 @@ export default {
   }),
   components: {
     AppBar,
-    Footer
+    Footer,
+    // SuccessAlert
   }
 };
 </script>

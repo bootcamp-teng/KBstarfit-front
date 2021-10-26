@@ -3,7 +3,7 @@
     hover
     elevation="5"
     class="pl-3 ml-5 mr-5 mt-2"
-    color="#FCE4E4"
+    :color="colorInfo[goal['statusCode']]"
     @click="record(goal.id)"
     height="200"
   >
@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       statusInfo: ["진행중🔥", "완료👍", "중도포기😱"],
-      goalInfo: ["", "🏃‍♀️", "🚴‍♀️"],
+      goalInfo: ["", "🚴‍♀️", "🏃‍♀️"],
       colorInfo: ["#FCE4E4", "#D2EEE8", "#E3F2FD"],
       chipColorInfo: ["#AD1457", "#4B8B90", "#2979FF"],
     };

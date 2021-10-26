@@ -5,6 +5,7 @@
 </template>
 
 <script>
+/* eslint-disable no-unused-vars */
 export default {
     created: function() {
         console.log(this.$route);
@@ -14,11 +15,12 @@ export default {
         const client_id = '515071488860-s2aoiepptpuhc5tkj18qj763iq1b1lf9.apps.googleusercontent.com';
         const client_secret = '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';
         const redirect_uri= 'http://teng.169.56.174.139.nip.io/auth/google/callback';
+        const redirect_uri2 = "http://localhost:8080/auth/google/callback";
         const grant_type = 'authorization_code';
         const access_type = 'offline';
         const approval_prompt = "force"
 
-        this.$axios.post(`https://www.googleapis.com/oauth2/v4/token?code=${code}&client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}&grant_type=${grant_type}&access_type=${access_type}&approval_prompt=${approval_prompt}`)
+        this.$axios.post(`https://www.googleapis.com/oauth2/v4/token?code=${code}&client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri1}&grant_type=${grant_type}&access_type=${access_type}&approval_prompt=${approval_prompt}`)
         .then(({data}) => {
             console.log(data);
             this.$cookies.set('fit-access', data['access_token']);

@@ -1,28 +1,28 @@
 <template>
   <form class="ma-5" align="center">
+      <v-text-field
+        v-model="userId"
+        :rules="[rules.required, rules.min]"
+        label="ID"
+        required
+        filled
+        dense
+        color="primary"
+        rounded
+      ></v-text-field>
     <v-text-field
-      v-model="name"
-      :error-messages="nameErrors"
-      :counter="10"
-      label="ID"
-      required
-      filled
-      dense
-      color="primary"
-      rounded
-      @input="$v.name.$touch()"
-      @blur="$v.name.$touch()"
-    ></v-text-field>
-    <v-text-field
-      v-model="email"
-      :error-messages="emailErrors"
+      v-model="password"
+      :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+      :rules="[rules.required, rules.min]"
+      :type="show1 ? 'text' : 'password'"
+      name="input-10-1"
       label="PASSWORD"
-      required
+      hint="At least 8 characters"
+      counter
       filled
       dense
       rounded
-      @input="$v.email.$touch()"
-      @blur="$v.email.$touch()"
+      @click:append="show1 = !show1"
     ></v-text-field>
     <v-btn rounded block class="mr-4 mb-4" @click="submit" color="#EFB775"
       >로그인
@@ -30,13 +30,11 @@
     <v-btn rounded block outlined @click="join" class="mb-4" color="#EFB775">
       회원가입
     </v-btn>
-    <v-btn rounded block class="mb-4" color="#EFB775" :href="`https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}&access_type=${access_type}&approval_prompt=${approval_prompt}`">
-      구글 피트니스
-    </v-btn>
   </form>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
 
@@ -56,17 +54,18 @@ export default {
 
   data: () => ({
     name: "",
+    userId: "",
+    password: "",
     email: "",
     select: null,
     items: ["Item 1", "Item 2", "Item 3", "Item 4"],
     checkbox: false,
-    client_id:
-      "515071488860-s2aoiepptpuhc5tkj18qj763iq1b1lf9.apps.googleusercontent.com",
-    redirect_uri: "http://teng.169.56.174.139.nip.io/auth/google/callback",
-    response_type: "code",
-    scope: "https://www.googleapis.com/auth/fitness.activity.read",
-    access_type: "offline",
-    approval_prompt: "force"
+    show1: false,
+    rules: {
+      required: (value) => !!value || "Required.",
+      min: (v) => v.length >= 8 || "Min 8 characters",
+      emailMatch: () => `The email and password you entered don't match`,
+    },
   }),
 
   computed: {
@@ -101,6 +100,12 @@ export default {
   methods: {
     submit() {
       this.$v.$touch();
+      const userInfo = {
+        username: this.userId,
+        password: this.password,
+      };
+      this.loginUser(userInfo);
+      this.clear();
     },
     clear() {
       this.$v.$reset();
@@ -108,10 +113,13 @@ export default {
       this.email = "";
       this.select = null;
       this.checkbox = false;
+      this.userId = "";
+      this.password = "";
     },
     join() {
       this.$router.push({ name: "Join" });
     },
+    ...mapActions(["loginUser"]),
   },
 };
 </script>

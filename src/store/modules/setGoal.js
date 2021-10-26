@@ -84,13 +84,13 @@ const setGoal = {
             const point = (parseInt(payload) / parseInt(state.goals[state.goalId - 1]['stdExerAmt'])) * parseInt(state.goals[state.goalId - 1]['stdPoint']);
             commit('MU_SET_POINT', point);
         },
-        AC_SUBMIT_GOAL: async ({ state, commit }) => {
+        AC_SUBMIT_GOAL: async ({ state, commit, rootState }) => {
             const params = {
                 "benefitCode": "1",
                 "goalId": state.goalId,
                 "period": state.period,
                 "title": state.title,
-                "userId": "15",
+                "userId": rootState.authStore.user.id,
                 "dayExerAmt": state.steps
             }
             

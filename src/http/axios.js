@@ -6,7 +6,7 @@ const grant_type = 'refresh_token';
 
 
 axios.interceptors.response.use(function(res) {
-    console.log('response interceptor!!!!');
+    // console.log('response interceptor!!!!');
     return res;
 }, async function(err) {
     console.log('err response' + err)
