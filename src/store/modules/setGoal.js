@@ -19,6 +19,7 @@ const setGoal = {
         unit: null,
         success: true,
         errorMsg: '',
+        curI: null,
     },
     getters: {
         GE_LIST_BOX_TYPE: state => state.listBoxType,
@@ -35,6 +36,7 @@ const setGoal = {
         GE_UNIT: state => state.unit,
         GE_SUCCESS: state => state.success,
         GE_ERROR_MSG: state => state.errorMsg,
+        GE_CUR_I: state => state.curI,
     },
     mutations: {
         MU_SET_LIST_BOX_TYPE: (state, payload) => state.listBoxType = payload,
@@ -51,6 +53,7 @@ const setGoal = {
         MU_SET_UNIT: (state, payload) => state.unit = payload,
         MU_SET_SUCCESS: (state, payload) => state.success = payload,
         MU_SET_ERROR_MSG: (state, payload) => state.errorMsg = payload,
+        MU_SET_CUR_I: (state, payload) => state.curI = payload,
     },
     actions: {
         AC_SET_LIST_BOX_TYPE: ({ commit }, payload) => commit('MU_SET_LIST_BOX_TYPE', payload),
@@ -71,17 +74,17 @@ const setGoal = {
         },
         AC_SET_STEP_LIST: ({ state, commit }) => {
             let stepList = [];
-            const min = state.goals[state.goalId - 1]['minExerAmt'];
-            const max = state.goals[state.goalId - 1]['maxExerAmt'];
-            const std = state.goals[state.goalId - 1]['stdExerAmt'];
+            const min = state.goals[state.curI - 1]['minExerAmt'];
+            const max = state.goals[state.curI - 1]['maxExerAmt'];
+            const std = state.goals[state.curI - 1]['stdExerAmt'];
             for (var i=min; i<=max; i=i+std) stepList.push(i);
-            commit('MU_SET_UNIT', state.goals[state.goalId - 1]['exerUnit']);
+            commit('MU_SET_UNIT', state.goals[state.curI - 1]['exerUnit']);
 
             commit('MU_SET_STEP_LIST', stepList);
         },
         AC_SET_GOAL_ID: ({ commit }, payload) => commit('MU_SET_GOAL_ID', payload),
         AC_SET_POINT: ({ state, commit }, payload) => {
-            const point = (parseInt(payload) / parseInt(state.goals[state.goalId - 1]['stdExerAmt'])) * parseInt(state.goals[state.goalId - 1]['stdPoint']);
+            const point = (parseInt(payload) / parseInt(state.goals[state.curI - 1]['stdExerAmt'])) * parseInt(state.goals[state.curI - 1]['stdPoint']);
             commit('MU_SET_POINT', point);
         },
         AC_SUBMIT_GOAL: async ({ state, commit }) => {
@@ -112,6 +115,7 @@ const setGoal = {
             commit('MU_SET_LIST_BOX_TYPE', 0);
         },
         AC_SET_SELEC_ALL_YN: ({ commit }, payload) => commit('MU_SET_SELECT_ALL_YN', payload),
+        AC_SET_CUR_I: ({ commit }, payload) => commit('MU_SET_CUR_I', payload),
     }
 }
 
