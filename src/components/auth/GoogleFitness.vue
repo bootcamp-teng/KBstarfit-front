@@ -16,7 +16,7 @@ export default {
     return {
       client_id:
         "515071488860-s2aoiepptpuhc5tkj18qj763iq1b1lf9.apps.googleusercontent.com",
-      redirect_uri: "http://teng.169.56.174.139.nip.io/auth/google/callback",
+      redirect_uri1: "http://teng.169.56.174.139.nip.io/auth/google/callback",
       redirect_uri2: "http://localhost:8080/auth/google/callback",
       response_type: "code",
       scope: "https://www.googleapis.com/auth/fitness.activity.read",
