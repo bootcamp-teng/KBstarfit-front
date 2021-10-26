@@ -14,7 +14,7 @@
         <p class="text-h6 spacing-playground mb-1">목표 운동량: </p>
         <p class="text-h4 spacing-playground mb-0">{{this.total_amount}}보</p>
         <p class="text-h6 spacing-playground mb-1">현재 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">40000보</p>
+        <p class="text-h4 spacing-playground mb-0">{{this.current_amount}}보 </p>
         <p class="text-h4 spacing-playground mb-0">진행중!</p>
       </v-card-title>
       <v-card-actions>
@@ -25,7 +25,7 @@
         <p class="text-h6 spacing-playground mb-1">목표 운동량: </p>
         <p class="text-h4 spacing-playground mb-0">{{this.total_amount}}보</p>
         <p class="text-h6 spacing-playground mb-1">현재 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">40000보</p>
+        <p class="text-h4 spacing-playground mb-0">{{this.current_amount}}보 </p>
         <p class="text-h4 spacing-playground mb-0">달성!</p>
       </v-card-title>
       <v-card-actions>
@@ -36,7 +36,7 @@
         <p class="text-h6 spacing-playground mb-1">목표 운동량: </p>
         <p class="text-h4 spacing-playground mb-0">{{this.total_amount}}보</p>
         <p class="text-h6 spacing-playground mb-1">현재 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">40000보</p>
+        <p class="text-h4 spacing-playground mb-0">{{this.current_amount}}보 </p>
         <p class="text-h4 spacing-playground mb-0">포기...</p>
 
       </v-card-title>
@@ -68,6 +68,18 @@ import axios from "axios";
           this.title= res.data.title;
           this.total_amount = res.data.dayExerAmt * res.data.period;
           this.status = res.data.statusCode;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      axios
+        .get("http://teng.169.56.174.139.nip.io/starfitexercise/v1/exercisebygoal/" +pageNum )
+        .then(res => {
+          console.log(res.data);
+          var item;
+          for (item =0; item<res.data.length; item++){
+            this.current_amount += res.data[item].exerAmt;
+          }
         })
         .catch(err => {
           console.log(err);

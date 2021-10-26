@@ -9,20 +9,20 @@
           v-for="(item, i) in this.items.slice().reverse()"
           :key="i"
         >
-          <td class="font-weight-black" v-show="i>=0 || item.date!=items[i-1].date" v-text="item.date">
+          <td class="font-weight-black" v-show="i>=0 || item.date!=items[i-1].date" v-text="item.date.slice(0,10)">
           </td>
           <td v-text="item.desc">
           </td>
-          <td v-if="item.point>0">
+          <td v-if="item.exerAmt>0">
           </td>
           <td v-else>
             
           </td>
-          <td class="font-weight-black" style="color: #6782D4" v-if="item.point>0" v-text="' + '+item.point+' 보' ">
+          <td class="font-weight-black" style="color: #6782D4" v-if="item.exerAmt>0" v-text="' + '+item.exerAmt+' 보' ">
           </td>
-          <td class="font-weight-black" style="color: #EF7880" v-else v-text="item.point+' 보'" >
+          <td class="font-weight-black" style="color: #EF7880" v-else v-text="item.exerAmt+' 보'" >
           </td>
-          <td class="font-weight-black" style="color: #000000" v-text="'달성 운동량 : ' +(current_run+=item.point)+ ' 보'">
+          <td class="font-weight-black" style="color: #000000" v-text="'달성 운동량 : ' +(current_run+=item.exerAmt)+ ' 보'">
           </td>
         </tr>
       </table>  
@@ -38,36 +38,34 @@
   </div>
 </template>
 <script>
+import axios from "axios";
   export default {
     data ()
     {return{
       pageNum: this.$route.params.id,
       items: [
-        {
-          date: '10.20',
-          desc: '걷기',
-          point: 8000
-        },
-        {
-          date: '10.19',
-          desc: '걷기',
-          point: 8000
-        },{
-          date: '10.18',
-          desc: '걷기',
-          point: 8000
-        },{
-          date: '10.16',
-          desc: '미션 시작',
-          point: 0
-        },
       ],
       current_run : 0,
     }},
     methods :{
       onClickRedirect: function () {   
           history.back();
+      },
+      fetchData(pageNum) {
+        axios
+          .get("http://teng.169.56.174.139.nip.io/starfitexercise/v1/exercisebygoal/"+ pageNum )
+          .then(res => {
+            console.log(res.data);
+            this.items = res.data;
+          })
+          .catch(err => {
+            console.log(err);
+          });
       }
-    }
+    },
+    mounted() {
+    this.fetchData(this.pageNum);
+  }
+
   }
 </script>
