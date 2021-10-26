@@ -10,6 +10,9 @@ import { mapGetters } from 'vuex';
 import RankItem from './RankItem.vue';
 
 export default {
+    mounted: function() {
+      this.$store.dispatch('rank/AC_GET_USERS_AND_ME');
+    },
     computed: {
         ...mapGetters('rank', [
             'GE_USERS',
