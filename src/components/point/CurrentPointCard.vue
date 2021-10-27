@@ -123,6 +123,7 @@
               color="#EFB775"
               class="font-weight-bold "
               :disabled="pointryInput === 0"
+              @click="useFitPoint"
             >
               포인트리 구매하기
             </v-btn>
@@ -155,10 +156,9 @@
     methods: {
       goBenefitPage () {
         this.loading = true
-
         setTimeout(() => (this.loading = false), 2000)
       },
-      ...mapActions(['getUserPoint']),
+      ...mapActions(['getUserPoint','addPointHistory']),
       changePointInput(pointryVal){
         const pattern = /[^0-9]/g;
         if(pattern.test(pointryVal)){
@@ -202,6 +202,18 @@
           poPointry = pointry-Math.round(pointry/100*12);
         }
         return poPointry;
+      },
+      useFitPoint(){
+        let pointInfo = {
+          "description": "포인트리 구매",
+          "point": this.usingFitPo*-1,
+          "userId":1,
+          "pointry":this.pointryInput
+        };
+
+        // 포인트리 구매하는 로직 필요
+
+        this.addPointHistory(pointInfo);
       }
     },
     filters: {
