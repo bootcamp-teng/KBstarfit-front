@@ -1,13 +1,10 @@
 <template>
   <div class="spacing-playground ma-4">
-    <v-card  color="#AD1457" dark>
-      <v-card-title class="spacing-playground pb-1">
-        <p class="text-h6 spacing-playground mb-1">{{user.name}}님의 현재 잔여 핏포인트: </p>
-        <p class="text-h4 spacing-playground mb-0">{{point | userPoint}} F</p>
+    <v-card  >
+      <v-card-title class="spacing-playground pb-1" style="background-color:#6782D4; color:white">
+        <p class="text-h6 spacing-playground mb-1">{{user.name}}님의 현재 잔여 핏포인트 </p>
       </v-card-title>
-      <v-card-actions>
-        
-      </v-card-actions>
+        <p class="text-h4 spacing-playground pa-4 text-center">{{point | userPoint}} F</p>
     </v-card>
     <v-dialog
       v-model="dialog"
@@ -18,7 +15,7 @@
      <template v-slot:activator="{ on, attrs }">
        <div style="width:100%">
           <v-btn
-            color="#6782D4 "
+            color="#4B8B90 "
             dark
             class="mt-2 float-right"
             v-bind="attrs"
@@ -33,7 +30,7 @@
      <v-card  color="#FFFAF6" >
         <v-toolbar
           dark
-          color="#60584C"
+          color="#4B8B90"
         >
           <v-btn
             icon
@@ -45,7 +42,7 @@
           <v-toolbar-title class="text-center mr-10" style="width:100%" >핏포인트 사용하기</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
-        <div style="background-color: #EAEAEA" class="ma-8 pa-5">
+        <v-card class="ma-8 pa-5">
           <v-row>
             <v-col 
               cols="7"
@@ -61,7 +58,7 @@
               </v-col>
               <v-col class="text-end pr-0 pl-0 text-h5" cols="3"> {{Math.floor(point/100)| userPoint}}</v-col> <v-col>P</v-col>
             </v-row>
-        </div>  
+        </v-card>  
         <div class="ma-9">
           구매할 포인트리
           <div class="mt-1">
@@ -124,8 +121,8 @@
           <div class="text-right">
             <v-btn
               rounded
-              color="#EFB775"
-              class=""
+              color="#4B8B90"
+              dark
               :disabled="pointryInput === 0"
               @click="useFitPoint"
             >

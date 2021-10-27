@@ -61,11 +61,5 @@ export default {
   background: #FCE4E4;
 }
 
-* { 
-  appearance: none !important; 
-  -moz-appearance: none !important; 
-  -webkit-appearance: none !important; 
-}
-
 
 </style>

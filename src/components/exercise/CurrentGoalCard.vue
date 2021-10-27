@@ -1,53 +1,30 @@
-<template>
-  <div class="spacing-playground ma-4">
-    <v-card  color="#DEB887"  dark>
-      <v-card-title class="spacing-playground pb-1">
-        <p class="text-h6 spacing-playground mb-1">마안재님의 선택 목표:</p>
-        <p class="text-h4 spacing-playground mb-0">{{this.title}}</p>
-      </v-card-title>
-      <v-card-actions>        
-      </v-card-actions>
-    </v-card>
- 
-  <v-card v-if="this.status==0" color="#EF7880"  dark>
-      <v-card-title class="spacing-playground pb-1">
-        <p class="text-h6 spacing-playground mb-1">목표 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">{{this.total_amount}}보</p>
-        <p class="text-h6 spacing-playground mb-1">현재 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">{{this.current_amount}}보 </p>
-        <p class="text-h4 spacing-playground mb-0">진행중!</p>
-      </v-card-title>
-      <v-card-actions>
-      </v-card-actions>
-    </v-card>
-  <v-card v-else-if="this.status==1" color="#1E90FF"  dark>
-      <v-card-title class="spacing-playground pb-1">
-        <p class="text-h6 spacing-playground mb-1">목표 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">{{this.total_amount}}보</p>
-        <p class="text-h6 spacing-playground mb-1">현재 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">{{this.current_amount}}보 </p>
-        <p class="text-h4 spacing-playground mb-0">달성!</p>
-      </v-card-title>
-      <v-card-actions>
-      </v-card-actions>
-    </v-card>
-    <v-card v-else color="#696969"  dark>
-      <v-card-title class="spacing-playground pb-1">
-        <p class="text-h6 spacing-playground mb-1">목표 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">{{this.total_amount}}보</p>
-        <p class="text-h6 spacing-playground mb-1">현재 운동량: </p>
-        <p class="text-h4 spacing-playground mb-0">{{this.current_amount}}보 </p>
-        <p class="text-h4 spacing-playground mb-0">포기...</p>
 
+ 
+<template>
+<div>
+  <div class="spacing-playground ma-4">
+    <v-card>
+      <v-card-title v-if="this.status==0" class="spacing-playground pb-1" style="background-color:#6782D4; color:white">
+        <p class="text-h6 spacing-playground mb-1">{{this.title}}</p>
       </v-card-title>
-      <v-card-actions>
-      </v-card-actions>
+      <v-card-title v-else-if="this.status==1" class="spacing-playground pb-1" style="background-color:#4B8B90; color:white">
+        <p class="text-h6 spacing-playground mb-1">{{this.title}}</p>
+      </v-card-title>
+      <v-card-title v-else class="spacing-playground pb-1" style="background-color:#EF7880; color:white">
+        <p class="text-h6 spacing-playground mb-1">{{this.title}}</p>
+      </v-card-title>
+        <div class="d-flex align-baseline justify-center pa-4">
+          <p class="text-h4 spacing-playground mb-0">{{this.current_amount}}/</p>
+          <p class="text-h5 spacing-playground mb-0">{{this.total_amount}} </p>
+        </div>
     </v-card>
   </div>
+</div>
 </template>
 
 <script>
 import axios from "axios";
+
   export default {
     data (){
       

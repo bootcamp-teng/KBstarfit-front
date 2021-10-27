@@ -2,7 +2,6 @@
   <div class="spacing-playground ma-4">
     <p class="text-h5 font-weight-black pt-3 " style="color:#17252A">핏포인트 기록</p>
     <v-card
-      color="#FCE4E4"
       scrollable
     >
         <v-row
