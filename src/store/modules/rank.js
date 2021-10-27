@@ -17,11 +17,13 @@ const rank = {
     actions: {
         AC_GET_USERS_AND_ME: async ({ commit }) => {
             const { data } = await axios.get('http://teng.169.56.174.139.nip.io/starfitexercise/v1/rank/3');
-            const { myRank, myExerAmt, rankList } = data;
+            const { myRank, myExerAmt, rankList, myName } = data;
+
+            console.log(data);
 
             const me = {
                 id: 1,
-                username: "김비비비",
+                username: myName,
                 exer: myExerAmt,
                 rank: myRank
             }
@@ -34,7 +36,7 @@ const rank = {
                 const curExer = rankList[i].exerHist.exerAmt;
 
                 users.push({
-                    id: i,
+                    id: i + 1,
                     username: curName,
                     rank: curRank,
                     exer: curExer,
