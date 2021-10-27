@@ -13,7 +13,7 @@
       <v-icon>mdi-account-heart</v-icon>
     </v-btn>
 
-    <v-btn icon>
+    <v-btn icon @click="pushRank">
       <v-icon>mdi-heart</v-icon>
     </v-btn>
     <v-menu v-if="isLoggedIn === true" offset-y>
@@ -48,9 +48,15 @@ export default {
     logout: function () {
       console.log("로그아웃");
     },
+<<<<<<< HEAD
     pushHome: function () {
       this.$router.push({ name: "Home" });
     },
+=======
+    pushRank: function() {
+      this.$router.push({name: 'Rank'});
+    }
+>>>>>>> 0a79acbb5eb54c62c639230a734e9424ef9f8b72
   },
   computed: {
     ...mapGetters(["isLoggedIn"]),

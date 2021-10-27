@@ -21,8 +21,9 @@ const pointStore = {
       },
   },
   actions: {
-      getUserPointList ({commit}, id) {
-        axios.get('http://teng.169.56.174.139.nip.io/starfitpoint/v1/point/history/' + id)
+      getUserPointList ({commit, rootState}, id) {
+          const userId = rootState.authStore.user.id;
+        axios.get('http://teng.169.56.174.139.nip.io/starfitpoint/v1/point/history/' + userId)
         .then((res) => {
             console.log(res);
             commit('GET_USER_POINT_LIST', res);

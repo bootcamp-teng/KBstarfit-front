@@ -2,7 +2,7 @@
   <div class="spacing-playground ma-4">
     <v-card  color="#EF7880" dark>
       <v-card-title class="spacing-playground pb-1">
-        <p class="text-h6 spacing-playground mb-1">마안재님의 현재 잔여 핏포인트: </p>
+        <p class="text-h6 spacing-playground mb-1">{{user.name}}님의 현재 잔여 핏포인트: </p>
         <p class="text-h4 spacing-playground mb-0">{{point | userPoint}} F</p>
       </v-card-title>
       <v-card-actions>
@@ -155,7 +155,7 @@
       usingFitPo: 0,
     }),
     computed: {
-      ...mapGetters(['point']),
+      ...mapGetters(['point', 'user']),
     },
     methods: {
       goBenefitPage () {
@@ -211,7 +211,7 @@
         let pointInfo = {
           "description": "포인트리 구매",
           "point": this.usingFitPo*-1,
-          "userId":1,
+          "userId": this.user.id,
           "pointry":this.pointryInput
         };
 
@@ -227,7 +227,7 @@
         }
     },
     created: function(){
-        this.getUserPoint(1);
+        this.getUserPoint(this.user.id);
     }
   }
 
