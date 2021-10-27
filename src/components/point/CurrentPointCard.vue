@@ -55,7 +55,7 @@
               >
                 <v-icon>mdi-alpha-p-circle-outline</v-icon> 구매 가능 포인트리 
               </v-col>
-              <v-col class="text-end pr-0 pl-0 text-h5 font-weight-bold" cols="3"> 153</v-col> <v-col>P</v-col>
+              <v-col class="text-end pr-0 pl-0 text-h5 font-weight-bold" cols="3"> {{Math.floor(point/100)| userPoint}}</v-col> <v-col>P</v-col>
             </v-row>
         </div>  
         <div class="ma-9 font-weight-bold">
@@ -169,7 +169,7 @@
         
         let pointry = pointryVal*1;
         this.pointryInput = pointry;
-        this.usingFitPo = this.getPossibleFitPoint(pointry);
+        this.usingFitPo = pointry*100;
         if (this.usingFitPo>this.point){
           alert("핏포가 부족합니다.");
           this.usingFitPo = 0;
@@ -180,29 +180,29 @@
         this.pointryInput += pointry;
         this.changePointInput(this.pointryInput);
       },
-      getPossibleFitPoint(pointry){
-        let poPointry = 0;
-        if(pointry<=49){
-          poPointry = pointry;
-        }else if(pointry<=99){
-          poPointry = pointry-Math.round(pointry/100*1);
-        }else if(pointry<=149){
-          poPointry = pointry-Math.round(pointry/100*2);
-        }else if(pointry<=199){
-          poPointry = pointry-Math.round(pointry/100*3);
-        }else if(pointry<=399){
-          poPointry = pointry-Math.round(pointry/100*5);
-        }else if(pointry<=499){
-          poPointry = pointry-Math.round(pointry/100*7);
-        }else if(pointry<=599){
-          poPointry = pointry-Math.round(pointry/100*9);
-        }else if(pointry<=699){
-          poPointry = pointry-Math.round(pointry/100*10);
-        }else{
-          poPointry = pointry-Math.round(pointry/100*12);
-        }
-        return poPointry;
-      },
+      // getPossibleFitPoint(pointry){
+      //   let poPointry = 0;
+      //   if(pointry<=49){
+      //     poPointry = pointry;
+      //   }else if(pointry<=99){
+      //     poPointry = pointry-Math.round(pointry/100*1);
+      //   }else if(pointry<=149){
+      //     poPointry = pointry-Math.round(pointry/100*2);
+      //   }else if(pointry<=199){
+      //     poPointry = pointry-Math.round(pointry/100*3);
+      //   }else if(pointry<=399){
+      //     poPointry = pointry-Math.round(pointry/100*5);
+      //   }else if(pointry<=499){
+      //     poPointry = pointry-Math.round(pointry/100*7);
+      //   }else if(pointry<=599){
+      //     poPointry = pointry-Math.round(pointry/100*9);
+      //   }else if(pointry<=699){
+      //     poPointry = pointry-Math.round(pointry/100*10);
+      //   }else{
+      //     poPointry = pointry-Math.round(pointry/100*12);
+      //   }
+      //   return poPointry;
+      // },
       useFitPoint(){
         let pointInfo = {
           "description": "포인트리 구매",
