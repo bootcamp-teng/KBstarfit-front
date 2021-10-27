@@ -1,32 +1,54 @@
 <template>
   <div class="mt-2">
-    <span class="body-2 ml-5 mb-0">나의 캐릭터 💸</span>
-    <div class="text-center">
-      <v-avatar class="ma-3 test" style="" color="#FCE4E4">
+    <span class="body-2 ml-5 mb-0">나의 캐릭터 🤝</span>
+    <v-row no-gutters justify="center" align="center">
+      <v-avatar class="mr-2 ml-2">
         <img src="../../assets/따봉아거.png" alt="John" />
       </v-avatar>
-
-      <v-avatar class="ma-3" color="#FCE4E4">
+      <v-avatar class="mr-3">
         <img src="../../assets/곰1.png" alt="John" />
       </v-avatar>
-
-      <v-avatar class="ma-3" color="#FCE4E4">
+      <v-avatar class="mr-3">
         <img src="../../assets/악어1.png" alt="John" />
       </v-avatar>
 
-      <v-avatar class="ma-3" color="#FCE4E4">
+      <v-avatar class="mr-3">
         <img src="../../assets/작은하트라무.png" alt="John" />
       </v-avatar>
 
-      <v-avatar class="ma-3" color="#FCE4E4">
+      <v-avatar class="mr-3">
         <img src="../../assets/토끼1.png" alt="John" />
       </v-avatar>
-    </div>
+    </v-row>
+    <v-row no-gutters justify="center" align="center">
+      <v-chip-group
+        v-model="selection"
+        active-class="orange--text text--darken-4"
+        class="font-weight-black"
+        mandatory
+      >
+        <v-chip class="jello-vertical">콜리</v-chip>
+        <v-chip class="jello-vertical">비비</v-chip>
+        <v-chip class="jello-vertical">아거</v-chip>
+        <v-chip class="jello-vertical">라무</v-chip>
+        <v-chip class="jello-vertical">토끼</v-chip>
+      </v-chip-group>
+    </v-row>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      selection: 0,
+    };
+  },
+};
+</script>
+
 <style scoped>
-.jello-vertical {
+.v-chip:focus.jello-vertical {
   -webkit-animation: jello-vertical 0.9s both;
   animation: jello-vertical 0.9s both;
 }
