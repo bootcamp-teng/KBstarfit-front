@@ -1,18 +1,39 @@
 <template>
-  <div class="water-waves mt-5">
-    <div class="water-wave1" :style="{top: 100 - (ratio) + '%'}"></div>
-    <div class="water-wave2" :style="{top: 100 - (ratio + 5) + '%'}"></div>
-    <div class="water-wave3" :style="{top: 100 - (ratio + 10) + '%'}"></div>
-    <p class="exercise-info body-2 mt-3 font-weight-black">목표: {{goal}}</p>
-    <p class="exercise-info text-h5 font-weight-black test">{{ current }}</p>
-    <p class="exercise-info caption">걸음</p>
+  <div>
+    <div class="water-waves mt-5">
+      <div class="water-wave1" :style="{ top: 100 - ratio + '%' }"></div>
+      <div class="water-wave2" :style="{ top: 100 - (ratio + 5) + '%' }"></div>
+      <div class="water-wave3" :style="{ top: 100 - (ratio + 10) + '%' }"></div>
+      <p class="exercise-info body-2 mt-3 font-weight-black">
+        목표: {{ goal }}
+      </p>
+      <p class="exercise-info text-h5 font-weight-black test">{{ current }}</p>
+      <p class="exercise-info caption">걸음</p>
+    </div>
+    <v-row justify="end" class="mr-2 mb-2">
+      <google-fitness></google-fitness>
+    </v-row>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+import GoogleFitness from "../auth/GoogleFitness.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+  data() {
+    return {
+      client_id:
+        "515071488860-s2aoiepptpuhc5tkj18qj763iq1b1lf9.apps.googleusercontent.com",
+      redirect_uri1: "http://teng.169.56.174.139.nip.io/auth/google/callback",
+      redirect_uri2: "http://localhost:8080/auth/google/callback",
+      response_type: "code",
+      scope: "https://www.googleapis.com/auth/fitness.activity.read",
+      access_type: "offline",
+      approval_prompt: "force",
+    };
+  },
   computed: {
     ...mapGetters(["current", "ratio", "goal"]),
   },
@@ -21,7 +42,14 @@ export default {
   },
   methods: {
     ...mapActions(["getCurrentAmount"]),
+    google: function () {
+      console.log("구글");
+      axios.get("");
+    },
   },
+  components: {
+    GoogleFitness
+  }
 };
 </script>
 

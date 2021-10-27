@@ -6,7 +6,14 @@ Vue.use(VueCookies);
 const homeStore = {
   state: {
       goalList: [],
-      point: 0
+      point: 0,
+    character: [
+        ['https://routingstar.s3.ap-northeast-2.amazonaws.com/coli1.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/coli2.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/coli3.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/coli4.png'],
+        ['https://routingstar.s3.ap-northeast-2.amazonaws.com/bibi1.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/bibi2.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/bibi3.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/bibi4.png'],
+        ['https://routingstar.s3.ap-northeast-2.amazonaws.com/agur1.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/agur2.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/agur3.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/agur4.png'],
+        ['https://routingstar.s3.ap-northeast-2.amazonaws.com/lamu1.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/lamu2.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/lamu3.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/lamu4.png'],
+        ['https://routingstar.s3.ap-northeast-2.amazonaws.com/kiki1.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/kiki2.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/kiki3.png', 'https://routingstar.s3.ap-northeast-2.amazonaws.com/kiki4.png']
+    ]
   },
   getters: {
     goalList(state) {
@@ -14,6 +21,9 @@ const homeStore = {
     },
     point(state) {
         return state.point;
+    },
+    character(state) {
+        return state.character;
     }
   },
   mutations: {

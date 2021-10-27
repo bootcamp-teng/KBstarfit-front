@@ -1,12 +1,6 @@
 <template>
-  <v-btn
-    rounded
-    block
-    class="mb-4"
-    color="#EFB775"
-    :href="`https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri1}&scope=${scope}&access_type=${access_type}&approval_prompt=${approval_prompt}`"
-  >
-    구글 피트니스
+  <v-btn class="mx-2" fab dark small color="#EFB775" :href="`https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri1}&scope=${scope}&access_type=${access_type}&approval_prompt=${approval_prompt}`">
+    <v-icon dark>mdi-google-fit</v-icon>
   </v-btn>
 </template>
 
