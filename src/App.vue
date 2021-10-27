@@ -31,7 +31,7 @@ export default {
 <style>
 * {
   /* font-family: 'Nanum Gothic', sans-serif; */
-  font-family: 'ROKABold';
+  font-family: 'ROKABold' ;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKABold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
@@ -60,5 +60,12 @@ export default {
 .light-pink {
   background: #FCE4E4;
 }
+
+* { 
+  appearance: none !important; 
+  -moz-appearance: none !important; 
+  -webkit-appearance: none !important; 
+}
+
 
 </style>
