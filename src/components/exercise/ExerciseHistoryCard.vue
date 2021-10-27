@@ -11,18 +11,9 @@
         >
           <td class="font-weight-black" v-show="i>=0 || item.date!=items[i-1].date" v-text="item.date.slice(0,10)">
           </td>
-          <td v-text="item.desc">
+          <td class="font-weight-black" style="color: #6782D4" v-if="item.exerAmt>0" v-text="'+'+item.exerAmt+' 보' ">
           </td>
-          <td v-if="item.exerAmt>0">
-          </td>
-          <td v-else>
-            
-          </td>
-          <td class="font-weight-black" style="color: #6782D4" v-if="item.exerAmt>0" v-text="' + '+item.exerAmt+' 보' ">
-          </td>
-          <td class="font-weight-black" style="color: #EF7880" v-else v-text="item.exerAmt+' 보'" >
-          </td>
-          <td class="font-weight-black" style="color: #000000" v-text="'달성 운동량 : ' +(current_run+=item.exerAmt)+ ' 보'">
+          <td class="font-weight-black" style="color: #EF7880" v-else v-text=" ''+ item.exerAmt+' 보'" >
           </td>
         </tr>
       </table>  
