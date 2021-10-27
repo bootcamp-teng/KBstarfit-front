@@ -2,7 +2,9 @@
   <v-app-bar flat app fixed dark color="#EFB775">
     <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-    <v-toolbar-title>KB 스타 Fit</v-toolbar-title>
+    <v-toolbar-title>
+        <img width="50%" src="../../assets/logo.png" alt="John" />
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
 
@@ -13,7 +15,7 @@
       <v-icon>mdi-account-heart</v-icon>
     </v-btn>
 
-    <v-btn icon>
+    <v-btn icon @click="pushRank">
       <v-icon>mdi-heart</v-icon>
     </v-btn>
     <v-menu v-if="isLoggedIn === true" offset-y>
@@ -48,6 +50,9 @@ export default {
     logout: function () {
       console.log("로그아웃");
     },
+    pushRank: function() {
+      this.$router.push({name: 'Rank'});
+    }
   },
   computed: {
     ...mapGetters(["isLoggedIn"]),

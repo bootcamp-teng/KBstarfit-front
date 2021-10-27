@@ -15,8 +15,9 @@ const rank = {
         MU_SET_ME: (state, payload) => state.me = payload,
     },
     actions: {
-        AC_GET_USERS_AND_ME: async ({ commit }) => {
-            const { data } = await axios.get('http://teng.169.56.174.139.nip.io/starfitexercise/v1/rank/3');
+        AC_GET_USERS_AND_ME: async ({ commit, rootState }) => {
+            const userId = rootState.authStore.user.id;
+            const { data } = await axios.get('http://teng.169.56.174.139.nip.io/starfitexercise/v1/rank/' + userId);
             const { myRank, myExerAmt, rankList, myName } = data;
 
             console.log(data);
