@@ -12,33 +12,21 @@
         >
           <v-col 
             cols="2"
-             class="font-weight-black ml-4" 
+             class="ml-4" 
              v-text="point.date.substring(5,10).replaceAll('-','/')">
           </v-col>
           <v-col 
-            cols="4"
+            cols="6"
              v-text="point.description">
           </v-col>
           <v-col 
-            cols="2" 
-            v-if="point.point>0">
-            적립
-          </v-col>
-          <v-col 
-            cols="2" 
-            v-else>
-            사용
-          </v-col>
-          <v-col 
-            cols="3" 
-            class="font-weight-black" 
+            class="font-weight-black text-end mr-3" 
             style="color: #6782D4" 
             v-if="point.point>0" 
             v-text="'+ '+calPoint(point.point)+' P'">
           </v-col>
           <v-col 
-            cols="3" 
-            class="font-weight-black" 
+            class="font-weight-black text-end mr-3" 
             style="color: #EF7880" 
             v-else 
             v-text="calPoint(point.point)+' P'">
