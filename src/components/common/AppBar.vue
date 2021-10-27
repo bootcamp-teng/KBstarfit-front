@@ -1,8 +1,8 @@
 <template>
   <v-app-bar flat app fixed dark color="#EFB775">
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-    <v-toolbar-title>KB 스타 Fit</v-toolbar-title>
+    <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome">KB 스타 Fit</v-toolbar-title>
+
 
     <v-spacer></v-spacer>
 
@@ -47,6 +47,9 @@ export default {
     ...mapActions(["logoutUser"]),
     logout: function () {
       console.log("로그아웃");
+    },
+    pushHome: function () {
+      this.$router.push({ name: "Home" });
     },
   },
   computed: {

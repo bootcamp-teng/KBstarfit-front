@@ -1,8 +1,8 @@
 <template>
   <div class="spacing-playground ma-4">
-    <v-card  color="#EF7880"  dark>
+    <v-card  color="#EF7880" dark>
       <v-card-title class="spacing-playground pb-1">
-        <p class="text-h6 spacing-playground mb-1">마안재님의 현재 잔여 핏포: </p>
+        <p class="text-h6 spacing-playground mb-1">마안재님의 현재 잔여 핏포인트: </p>
         <p class="text-h4 spacing-playground mb-0">{{point | userPoint}} F</p>
       </v-card-title>
       <v-card-actions>
@@ -16,15 +16,19 @@
       transition="dialog-bottom-transition"
     >
      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          class="mt-2"
-          v-bind="attrs"
-          v-on="on"
-        >
-        포인트로 혜택 받기 💰
-      </v-btn>
+       <div style="width:100%">
+          <v-btn
+            color="#6782D4 "
+            dark
+            class="mt-2 float-right"
+            v-bind="attrs"
+            v-on="on"
+            
+          >
+          핏포인트로 혜택 받기 💰
+        </v-btn>
+        <br/>
+       </div>
     </template>
      <v-card  color="#FFFAF6" >
         <v-toolbar
@@ -38,7 +42,7 @@
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title class="text-center mr-10" style="width:100%" >핏포 사용하기</v-toolbar-title>
+          <v-toolbar-title class="text-center mr-10" style="width:100%" >핏포인트 사용하기</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
         <div style="background-color: #EAEAEA" class="ma-8 pa-5 font-weight-black">
@@ -46,7 +50,7 @@
             <v-col 
               cols="7"
             >
-            <v-icon>mdi-ticket</v-icon> 잔여 핏포</v-col> 
+            <v-icon>mdi-ticket</v-icon> 잔여 핏포인트</v-col> 
             <v-col class="text-end pr-0 pl-0 text-h5 font-weight-bold" cols="3"> {{point | userPoint}}</v-col> <v-col>F</v-col>
           </v-row>
           <v-row >

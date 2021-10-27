@@ -1,19 +1,19 @@
 <template>
   <div class="spacing-playground ma-4">
-    <p class="text-h5 font-weight-black pt-3 ">포인트 내역</p>
+    <p class="text-h5 font-weight-black pt-3 " style="color:#17252A">핏포인트 기록</p>
     <v-card
-      color="rgb(252, 228, 228)"
+      color="#FCE4E4"
+      scrollable
     >
-      <div>
         <v-row
           v-for="(point) in pointList.data"
           :key="point.id"
           class="text-center"
         >
           <v-col 
-            cols="3"
-             class="font-weight-black" 
-             v-text="point.date.substring(2,10)">
+            cols="2"
+             class="font-weight-black ml-4" 
+             v-text="point.date.substring(5,10).replaceAll('-','/')">
           </v-col>
           <v-col 
             cols="4"
@@ -44,7 +44,6 @@
             v-text="calPoint(point.point)+' P'">
           </v-col>
         </v-row>
-      </div>  
     </v-card>
   </div>
 </template>
