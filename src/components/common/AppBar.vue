@@ -1,7 +1,7 @@
 <template>
   <v-app-bar flat app fixed dark color="#EFB775">
 
-    <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome">KB 스타 Fit</v-toolbar-title>
+    <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome">STARFIT</v-toolbar-title>
 
 
     <v-spacer></v-spacer>

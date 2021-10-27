@@ -31,8 +31,10 @@ export default {
 <style>
 * {
   /* font-family: 'Nanum Gothic', sans-serif; */
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: bold;
+  font-family: 'ROKABold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKABold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .maincolor {
