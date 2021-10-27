@@ -9,7 +9,6 @@ const authStore = {
   state: {
     isLoggedIn: false,
     user: "",
-    access: null,
   },
   getters: {
     isLoggedIn: function (state) {
@@ -18,23 +17,15 @@ const authStore = {
     user: function (state) {
       return state.user;
     },
-    access: function (state) {
-      return state.access;
-    },
   },
   mutations: {
     LOGIN_USER: function (state, token) {
-      //   document.cookie = `access-token=${token}`;
-      //   console.log(router);
-      console.log(token);
-      state.access = token;
       state.isLoggedIn = true;
       router.push({ name: "Home" });
     },
     LOGOUT_USER: function (state) {
       state.isLoggedIn = false;
       state.user = "";
-      state.access = null;
       router.push({ name: "Login" });
     },
     SAVE_USER_INFO: function (state, user) {
@@ -42,31 +33,26 @@ const authStore = {
     },
   },
   actions: {
-    addUser({ commit }, userInfo) {
-      console.log(userInfo);
+    addUser({ commit, dispatch }, userInfo) {
+      const loginUser = {
+        loginId: userInfo.username,
+        name: userInfo.name,
+        password: userInfo.password,
+        characterId: userInfo.characterId,
+      };
+
       axios
         .post(
-          "http://user30.mvp-sample-login.169.56.174.138.nip.io/api/users",
-          userInfo
+          "http://teng.169.56.174.139.nip.io/starfituser/v1/user",
+          loginUser
         )
-        .then(({ data }) => {
+        .then(async ({ data }) => {
           console.log(data);
           /*
                 성공 알림창
             */
-        })
-        .then(() => {
-          const loginUser = {
-            loginId: userInfo.username,
-            name: userInfo.name,
-            password: userInfo.password,
-            characterId: userInfo.characterId,
-          };
-
-          axios.post(
-            "http://teng.169.56.174.139.nip.io/starfituser/v1/user",
-            loginUser
-          );
+           if(data == null) throw new Error('회원가입 불가');
+           else router.push({name: 'Login'});
         })
         .catch((err) => {
           /*
@@ -76,31 +62,21 @@ const authStore = {
         });
     },
     async loginUser({ commit }, userInfo) {
+      const loginInfo = {
+        loginId: userInfo.username,
+        password: userInfo.password,
+      };
       await axios
         .post(
-          "http://user30.mvp-sample-login.169.56.174.138.nip.io/api/auth/login",
-          userInfo
+          "http://teng.169.56.174.139.nip.io/starfituser/v1/login",
+          loginInfo
         )
-        .then( async ({ data }) => {
-          const token = data["data"];
-          console.log(token);
-
-          const loginInfo = {
-            loginId: userInfo.username,
-            password: userInfo.password,
-          };
-          await axios.post(
-            "http://teng.169.56.174.139.nip.io/starfituser/v1/login",
-            loginInfo
-          )
-          .then(({data}) => {
-              if (data === null) throw new Error("없는 사용자");
-              else {
-                commit("SAVE_USER_INFO", data);
-                commit("LOGIN_USER", token);
-              }
-          })
-
+        .then(({ data }) => {
+          if (data === null) throw new Error("없는 사용자");
+          else {
+            commit("SAVE_USER_INFO", data);
+            commit("LOGIN_USER");
+          }
         })
         .catch((err) => {
           console.log(err);
