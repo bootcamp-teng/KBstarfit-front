@@ -48,15 +48,12 @@ export default {
     logout: function () {
       console.log("로그아웃");
     },
-<<<<<<< HEAD
     pushHome: function () {
       this.$router.push({ name: "Home" });
     },
-=======
     pushRank: function() {
       this.$router.push({name: 'Rank'});
     }
->>>>>>> 0a79acbb5eb54c62c639230a734e9424ef9f8b72
   },
   computed: {
     ...mapGetters(["isLoggedIn"]),
