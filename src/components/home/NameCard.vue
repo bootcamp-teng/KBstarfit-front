@@ -13,7 +13,7 @@
           <img
             class="pa-2"
             width="70%"
-            src="../../assets/점핑아거.png"
+            :src="character[user.characterId - 1][0]"
             alt="캐릭터"
           />
         </v-progress-circular>
@@ -38,7 +38,7 @@ export default {
   data() {
     return {};
   },
-  computed: {...mapGetters(['ratio','user'])},
+  computed: {...mapGetters(['ratio','user', 'character'])},
 };
 </script>
 

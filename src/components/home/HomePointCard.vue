@@ -4,7 +4,7 @@
     <v-card elevation="5" class="pl-3 ml-5 mr-5 mt-2" color="#6782D4" dark @click="pushPoint">
       <v-row no-gutters>
         <v-col cols="6" align-self="center" align="center">
-          <img width="50%" src="../../assets/물아거.png" alt="캐릭터" />
+          <img class="mt-2 mb-2" width="40%" :src="character[user.characterId - 1][1]" alt="캐릭터" />
         </v-col>
         <v-col cols="6" align-self="center">
           <v-card-title class="text-h6 justify-left pl-0">
@@ -25,7 +25,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['point', 'user'])
+        ...mapGetters(['point', 'user', 'character'])
     },
     methods: {
         ...mapActions(['getUserPoint']),

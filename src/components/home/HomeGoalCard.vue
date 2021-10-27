@@ -36,10 +36,10 @@
 export default {
   data() {
     return {
-      statusInfo: ["진행중🔥", "완료👍", "중도포기😱"],
+      statusInfo: ["진행중🔥", "완료👍", "중도포기💧"],
       goalInfo: ["", "🚴‍♀️", "🏃‍♀️"],
       colorInfo: ["#FCE4E4", "#D2EEE8", "#E3F2FD"],
-      chipColorInfo: ["#AD1457", "#4B8B90", "#2979FF"],
+      chipColorInfo: ["#AD1457", "#4B8B90", "#6782D4"],
     };
   },
   props: {
