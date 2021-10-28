@@ -2,7 +2,7 @@
   <form class="ma-5" align="center">
       <v-text-field
         v-model="userId"
-        :rules="[rules.required, rules.min]"
+        :rules="[rules.required]"
         label="ID"
         required
         filled
@@ -13,11 +13,10 @@
     <v-text-field
       v-model="password"
       :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-      :rules="[rules.required, rules.min]"
+      :rules="[rules.required]"
       :type="show1 ? 'text' : 'password'"
       name="input-10-1"
       label="PASSWORD"
-      hint="At least 8 characters"
       counter
       filled
       dense

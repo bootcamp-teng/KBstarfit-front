@@ -105,10 +105,14 @@ const exerciseStore = {
         */
           if (data === "진행중인 목표가 없습니다")
             throw new Error("진행중인 목표가 없습니다");
-          else if (data === "일일 포인트 지급이 완료되었습니다")
+          else if (data === "일일 포인트 지급이 완료되었습니다") {
             console.log("일일 포인트 지급이 완료되었습니다");
-          else if (data === "최종목표를 달성하셨습니다")
+            alert('일일 포인트 지급이 완료되었습니다');
+          }
+          else if (data === "최종목표를 달성하셨습니다") {
+            alert("최종목표를 달성하셨습니다");
             console.log("최종목표를 달성하셨습니다");
+          }
         })
         .catch((err) => {
           console.log(err);

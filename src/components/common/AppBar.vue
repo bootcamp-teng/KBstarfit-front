@@ -1,9 +1,11 @@
 <template>
   <v-app-bar flat app fixed dark color="#EFB775">
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-btn icon @click="pushBack">
+      <v-icon>mdi-arrow-left-circle</v-icon>
+    </v-btn>
 
     <v-toolbar-title>
-        <img width="50%" src="../../assets/logo.png" alt="John" />
+      <img width="50%" src="../../assets/logo.png" alt="John" />
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
@@ -16,7 +18,7 @@
     </v-btn>
 
     <v-btn icon @click="pushRank">
-      <v-icon>mdi-heart</v-icon>
+      <v-icon>mdi-star-face</v-icon>
     </v-btn>
     <v-menu v-if="isLoggedIn === true" offset-y>
       <template v-slot:activator="{ on, attrs }">
@@ -50,8 +52,11 @@ export default {
     logout: function () {
       console.log("로그아웃");
     },
-    pushRank: function() {
-      this.$router.push({name: 'Rank'});
+    pushRank: function () {
+      this.$router.push({ name: "Rank" });
+    },
+    pushBack: function() {
+      this.$router.go(-1);
     }
   },
   computed: {

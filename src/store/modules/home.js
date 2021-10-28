@@ -42,8 +42,10 @@ const homeStore = {
               console.log(data);
               var goalList = [];
               var goal = 10000;
-              if(data.length != 0)  {goalList = data;
-                goal = goalList[0].dayExerAmt;
+              if(data.length != 0)  {
+                goalList = data;
+                if(data[0].statusCode == 0)
+                    goal = goalList[0].dayExerAmt;
               }
               console.log(goal)
               commit('GET_USER_GOAL_LIST', goalList);
