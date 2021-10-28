@@ -37,6 +37,14 @@ export default {
     font-style: normal;
 }
 
+v-card v-btn{
+  font-family: 'ROKABold' ;
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKABold.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+}
+
+
 .maincolor {
   background: #EFB775;
 }

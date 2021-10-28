@@ -42,21 +42,23 @@
           <v-toolbar-title class="text-center mr-10" style="width:100%" >핏포인트 사용하기</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
-        <v-card class="ma-8 pa-5">
+        <v-card class="ma-8 pa-2">
           <v-row>
             <v-col 
-              cols="7"
+              cols="6"
+              class="pr-0"
             >
             <v-icon>mdi-ticket</v-icon> 잔여 핏포인트</v-col> 
-            <v-col class="text-end pr-0 pl-0 text-h5" cols="3"> {{point | userPoint}}</v-col> <v-col>F</v-col>
+            <v-col class="text-end pr-1 pl-0 text-h5" cols="5"> {{point | userPoint}}</v-col> <v-col cols="1" class="pl-1">F</v-col>
           </v-row>
           <v-row >
               <v-col 
                 cols="7"
+                class="pr-0"
               >
                 <v-icon>mdi-alpha-p-circle-outline</v-icon> 구매 가능 포인트리 
               </v-col>
-              <v-col class="text-end pr-0 pl-0 text-h5" cols="3"> {{Math.floor(point/100)| userPoint}}</v-col> <v-col>P</v-col>
+              <v-col class="text-end pr-1 pl-0 text-h5" cols="4"> {{Math.floor(point/100)| userPoint}}</v-col> <v-col cols="1" class="pl-1">P</v-col>
             </v-row>
         </v-card>  
         <div class="ma-9">

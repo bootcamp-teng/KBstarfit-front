@@ -2,7 +2,6 @@
   <div class="spacing-playground ma-4">
     <p class="text-h5 font-weight-black pt-3 mb-5" style="color:#17252A">{{user.name}}님의 운동 기록 🏃‍♀️</p>
     <v-card
-      style="height:300px"
       class="mt-5"
     >
         <v-row
