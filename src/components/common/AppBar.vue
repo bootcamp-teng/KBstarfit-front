@@ -1,18 +1,11 @@
 <template>
   <v-app-bar flat app fixed dark color="#EFB775">
-<<<<<<< HEAD
 
-    <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome">STARFIT</v-toolbar-title>
-
-=======
     <v-btn icon @click="pushBack">
       <v-icon>mdi-arrow-left-circle</v-icon>
     </v-btn>
+    <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome">STARFIT</v-toolbar-title>
 
-    <v-toolbar-title>
-      <img width="50%" src="../../assets/logo.png" alt="John" />
-    </v-toolbar-title>
->>>>>>> uiux-002
 
     <v-spacer></v-spacer>
 
