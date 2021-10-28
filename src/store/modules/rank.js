@@ -35,12 +35,14 @@ const rank = {
                 const curRank = rankList[i].rank;
                 const curName = rankList[i].name;
                 const curExer = rankList[i].exerHist.exerAmt;
+                const characterId = rankList[i].characterId;
 
                 users.push({
                     id: i + 1,
                     username: curName,
                     rank: curRank,
                     exer: curExer,
+                    characterId: characterId
                 });
             }
 
