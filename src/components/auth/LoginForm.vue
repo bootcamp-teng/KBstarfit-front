@@ -17,7 +17,6 @@
       :type="show1 ? 'text' : 'password'"
       name="input-10-1"
       label="PASSWORD"
-      counter
       filled
       dense
       rounded
@@ -53,8 +52,8 @@ export default {
 
   data: () => ({
     name: "",
-    userId: "",
-    password: "",
+    userId: "tengteng",
+    password: "passw0rd",
     email: "",
     select: null,
     items: ["Item 1", "Item 2", "Item 3", "Item 4"],

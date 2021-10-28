@@ -6,9 +6,10 @@ import VueCookies from "vue-cookies";
 Vue.use(VueCookies);
 const exerciseStore = {
   state: {
-    goal: 10000,
+    goal: 0,
     current: 0,
     ratio: 0,
+    exerciseHistory: [],
   },
   getters: {
     current(state) {
@@ -19,6 +20,9 @@ const exerciseStore = {
     },
     goal(state) {
       return state.goal;
+    },
+    exerciseHistory(state) {
+      return state.exerciseHistory;
     }
   },
   mutations: {
@@ -32,6 +36,9 @@ const exerciseStore = {
     },
     'SET_GOAL_AMOUNT': function(state, goal) {
       state.goal = goal;
+    },
+    'GET_EXERCISE_HISTORY': function(state, goal) {
+      state.exerciseHistory = goal;
     }
   },
   actions: {
@@ -118,6 +125,17 @@ const exerciseStore = {
           console.log(err);
         });
     },
+    getExerciseHistory({commit}, goalId) {
+      axios
+      .get("http://teng.169.56.174.139.nip.io/starfitexercise/v1/exercisebygoal/"+ goalId)
+      .then(({data}) => {
+        console.log(data);
+        commit('GET_EXERCISE_HISTORY', data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
   },
   modules: {},
 };

@@ -1,108 +1,101 @@
 <template>
-  <div class="spacing-playground ma-4">
-    <v-card  >
-      <v-card-title class="spacing-playground pb-1" style="background-color:#6782D4; color:white">
-        <p class="text-h6 spacing-playground mb-1">{{user.name}}님의 현재 잔여 핏포인트 </p>
-      </v-card-title>
-        <p class="text-h4 spacing-playground pa-4 text-center">{{point | userPoint}} F</p>
-    </v-card>
+  <div class="container">
+    <home-point-card></home-point-card>
     <v-dialog
       v-model="dialog"
       fullscreen
       hide-overlay
       transition="dialog-bottom-transition"
     >
-     <template v-slot:activator="{ on, attrs }">
-       <div style="width:100%">
+      <template v-slot:activator="{ on, attrs }">
+        <div style="width: 100%">
           <v-btn
             color="#4B8B90 "
             dark
             class="mt-2 float-right"
             v-bind="attrs"
             v-on="on"
-            
           >
-          핏포인트 사용하기 💰
-        </v-btn>
-        <br/>
-       </div>
-    </template>
-     <v-card  color="#FFFAF6" >
-        <v-toolbar
-          dark
-          color="#4B8B90"
-        >
-          <v-btn
-            icon
-            dark
-            @click="dialog = false"
-          >
+            핏포인트 사용하기 💰
+          </v-btn>
+          <br />
+        </div>
+      </template>
+      <v-card color="#FFFAF6">
+        <v-toolbar dark color="#4B8B90">
+          <v-btn icon dark @click="dialog = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title class="text-center mr-10" style="width:100%" >핏포인트 사용하기</v-toolbar-title>
+          <v-toolbar-title class="text-center"
+            >핏포인트 사용하기</v-toolbar-title
+          >
           <v-spacer></v-spacer>
         </v-toolbar>
         <v-card class="ma-8 pa-5">
-          <v-row>
-            <v-col 
-              cols="7"
-            >
-            <v-icon>mdi-ticket</v-icon> 잔여 핏포인트</v-col> 
-            <v-col class="text-end pr-0 pl-0 text-h5" cols="3"> {{point | userPoint}}</v-col> <v-col>F</v-col>
+          <v-row no-gutters>
+            <v-col cols="7"> <v-icon>mdi-ticket</v-icon> 잔여 핏포인트</v-col>
+            <v-col class="text-end pr-0 pl-0"> {{ point | userPoint }} F</v-col>
           </v-row>
-          <v-row >
-              <v-col 
-                cols="7"
-              >
-                <v-icon>mdi-alpha-p-circle-outline</v-icon> 구매 가능 포인트리 
-              </v-col>
-              <v-col class="text-end pr-0 pl-0 text-h5" cols="3"> {{Math.floor(point/100)| userPoint}}</v-col> <v-col>P</v-col>
-            </v-row>
-        </v-card>  
-        <div class="ma-9">
+          <v-row no-gutters class="mt-3">
+            <v-col cols="7">
+              <v-icon>mdi-alpha-p-circle-outline</v-icon> 구매 가능 포인트리
+            </v-col>
+            <v-col class="text-end pr-0 pl-0">
+              {{ Math.floor(point / 100) | userPoint }} P</v-col
+            >
+          </v-row>
+        </v-card>
+        <div>
           구매할 포인트리
-          <div class="mt-1">
-            <v-btn
-              rounded
-              dark
-              class="ma-1 pa-2"
-              color="secondary"
-              outlined
-              @click="clickPointBtn(1000)"
-            >
-              + 1,000 P
-            </v-btn>
-            <v-btn
-              rounded
-              dark
-              class="ma-1 pa-2"
-              color="secondary"
-              outlined
-              @click="clickPointBtn(500)"
-            >
-              + 500 P
+          <v-row no-gutters class="ma-3" justify="center">
+            <v-col>
+              <v-btn
+                rounded
+                dark
+                color="secondary"
+                outlined
+                @click="clickPointBtn(1000)"
+              >
+                +1,000P
               </v-btn>
-            <v-btn
-              rounded
-              dark
-              class="ma-1 pa-2"
-              color="secondary"
-              outlined
-              @click="clickPointBtn(100)"
-            >
-              + 100 P
-            </v-btn>
-            <v-btn
-              rounded
-              dark
-              class="ma-1 pa-2"
-              color="secondary"
-              outlined
-              @click="clickPointBtn(10)"
-            >
-              + 10 P
-            </v-btn>
-          </div>
+            </v-col>
+            <v-col >
+              <v-btn
+                rounded
+                dark
+                color="secondary"
+                outlined
+                @click="clickPointBtn(500)"
+              >
+                +500P
+              </v-btn>
+            </v-col>
+
+            <v-col >
+              <v-btn
+                rounded
+                dark
+                color="secondary"
+                outlined
+                @click="clickPointBtn(100)"
+              >
+                +100P
+              </v-btn>
+            </v-col>
+
+            <v-col>
+              <v-btn
+                rounded
+                dark
+                color="secondary"
+                outlined
+                @click="clickPointBtn(10)"
+              >
+                +10P
+              </v-btn>
+            </v-col>
+          </v-row>
+
           <div class="mt-4">
             <v-text-field
               label="구매할 포인트리 입력"
@@ -113,9 +106,8 @@
               @input="changePointInput($event)"
             >
             </v-text-field>
-            <v-input class="d-flex text-h4" ref="fitPointInput"
-            >
-              = {{usingFitPo}} F
+            <v-input class="d-flex text-h4" ref="fitPointInput">
+              = {{ usingFitPo }} F
             </v-input>
           </div>
           <div class="text-right">
@@ -133,99 +125,102 @@
       </v-card>
     </v-dialog>
   </div>
-</template> 
+</template>
 <script>
-  import {mapGetters, mapActions} from "vuex";
+import { mapGetters, mapActions } from "vuex";
+import HomePointCard from "../home/HomePointCard.vue";
 
-  export default {
-    data: () => ({
-      pointryInput: 0,
-      dialog: false,
-      widgets: false,
-       rules: [
-         value => {
-          const pattern = /[^0-9]/g;
-          return !pattern.test(value) || '숫자만입력하세요'
-        },
-        value => !!value || 'Required.',
-      ],
-      usingFitPo: 0,
-    }),
-    computed: {
-      ...mapGetters(['point', 'user']),
-    },
-    methods: {
-      goBenefitPage () {
-        this.loading = true
-        setTimeout(() => (this.loading = false), 2000)
-      },
-      ...mapActions(['getUserPoint','addPointHistory']),
-      changePointInput(pointryVal){
+export default {
+  data: () => ({
+    pointryInput: 0,
+    dialog: false,
+    widgets: false,
+    rules: [
+      (value) => {
         const pattern = /[^0-9]/g;
-        if(pattern.test(pointryVal)){
-          this.usingFitPo = 0;
-          this.pointryInput = 0;
-          return;
-        }
-        
-        let pointry = pointryVal*1;
-        this.pointryInput = pointry;
-        this.usingFitPo = pointry*100;
-        if (this.usingFitPo>this.point){
-          alert("핏포가 부족합니다.");
-          this.usingFitPo = 0;
-          this.pointryInput = 0;
-        }
+        return !pattern.test(value) || "숫자만입력하세요";
       },
-      clickPointBtn: function(pointry){
-        this.pointryInput += pointry;
-        this.changePointInput(this.pointryInput);
-      },
-      // getPossibleFitPoint(pointry){
-      //   let poPointry = 0;
-      //   if(pointry<=49){
-      //     poPointry = pointry;
-      //   }else if(pointry<=99){
-      //     poPointry = pointry-Math.round(pointry/100*1);
-      //   }else if(pointry<=149){
-      //     poPointry = pointry-Math.round(pointry/100*2);
-      //   }else if(pointry<=199){
-      //     poPointry = pointry-Math.round(pointry/100*3);
-      //   }else if(pointry<=399){
-      //     poPointry = pointry-Math.round(pointry/100*5);
-      //   }else if(pointry<=499){
-      //     poPointry = pointry-Math.round(pointry/100*7);
-      //   }else if(pointry<=599){
-      //     poPointry = pointry-Math.round(pointry/100*9);
-      //   }else if(pointry<=699){
-      //     poPointry = pointry-Math.round(pointry/100*10);
-      //   }else{
-      //     poPointry = pointry-Math.round(pointry/100*12);
-      //   }
-      //   return poPointry;
-      // },
-      useFitPoint(){
-        let pointInfo = {
-          "description": "포인트리 구매",
-          "point": this.usingFitPo*-1,
-          "userId": this.user.id,
-          "pointry":this.pointryInput
-        };
+      (value) => !!value || "Required.",
+    ],
+    usingFitPo: 0,
+  }),
+  computed: {
+    ...mapGetters(["point", "user"]),
+  },
+  methods: {
+    goBenefitPage() {
+      this.loading = true;
+      setTimeout(() => (this.loading = false), 2000);
+    },
+    ...mapActions(["getUserPoint", "addPointHistory"]),
+    changePointInput(pointryVal) {
+      const pattern = /[^0-9]/g;
+      if (pattern.test(pointryVal)) {
+        this.usingFitPo = 0;
+        this.pointryInput = 0;
+        return;
+      }
 
-        // 포인트리 구매하는 로직 필요
-
-        this.addPointHistory(pointInfo);
+      let pointry = pointryVal * 1;
+      this.pointryInput = pointry;
+      this.usingFitPo = pointry * 100;
+      if (this.usingFitPo > this.point) {
+        alert("핏포가 부족합니다.");
+        this.usingFitPo = 0;
+        this.pointryInput = 0;
       }
     },
-    filters: {
-        userPoint: function(point) {
-            var num = new Number(point);
-            return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
-        }
+    clickPointBtn: function (pointry) {
+      this.pointryInput += pointry;
+      this.changePointInput(this.pointryInput);
     },
-    created: function(){
-        this.getUserPoint(this.user.id);
-    }
-  }
+    // getPossibleFitPoint(pointry){
+    //   let poPointry = 0;
+    //   if(pointry<=49){
+    //     poPointry = pointry;
+    //   }else if(pointry<=99){
+    //     poPointry = pointry-Math.round(pointry/100*1);
+    //   }else if(pointry<=149){
+    //     poPointry = pointry-Math.round(pointry/100*2);
+    //   }else if(pointry<=199){
+    //     poPointry = pointry-Math.round(pointry/100*3);
+    //   }else if(pointry<=399){
+    //     poPointry = pointry-Math.round(pointry/100*5);
+    //   }else if(pointry<=499){
+    //     poPointry = pointry-Math.round(pointry/100*7);
+    //   }else if(pointry<=599){
+    //     poPointry = pointry-Math.round(pointry/100*9);
+    //   }else if(pointry<=699){
+    //     poPointry = pointry-Math.round(pointry/100*10);
+    //   }else{
+    //     poPointry = pointry-Math.round(pointry/100*12);
+    //   }
+    //   return poPointry;
+    // },
+    useFitPoint() {
+      let pointInfo = {
+        description: "포인트리 구매",
+        point: this.usingFitPo * -1,
+        userId: this.user.id,
+        pointry: this.pointryInput,
+      };
 
+      // 포인트리 구매하는 로직 필요
+
+      this.addPointHistory(pointInfo);
+    },
+  },
+  filters: {
+    userPoint: function (point) {
+      var num = new Number(point);
+      return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
+    },
+  },
+  created: function () {
+    this.getUserPoint(this.user.id);
+  },
+  components: {
+    HomePointCard,
+  },
+};
 </script>

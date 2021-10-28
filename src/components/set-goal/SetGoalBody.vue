@@ -1,10 +1,16 @@
 <template>
-    <div class="container">
+    <div class="container" style="text-align: center">
+      <v-row no-gutters>
+
         <span class="m-text">제목: </span>
-        <v-text-field style="display: inline-block; width: 300px;" v-model="vtitle" align="center" class="text-h6"></v-text-field><br>
+        <v-text-field  v-model="vtitle" align="center" class="text-h6"></v-text-field><br>
+      </v-row>
+      <v-row no-gutters>
+
         <span class="m-text">나도 </span>
         <v-text-field  align="center" class="text-field text-h6" :value="period" @click="showListBox(1)" readonly></v-text-field>
         <span class="m-text">일 동안</span><br>
+      </v-row>
         <v-text-field align="center" class="text-field text-h6" :value="type" @click="showListBox(3)" readonly></v-text-field>
         <span class="m-text">운동을 </span><br>
         <span class="m-text">하루에</span><v-text-field align="center" class="text-field text-h6"  :value="steps" @click="showListBox(2)" readonly></v-text-field>

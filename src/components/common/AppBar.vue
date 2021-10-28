@@ -1,17 +1,18 @@
 <template>
   <v-app-bar flat app fixed dark color="#EFB775">
-
     <v-btn icon @click="pushBack">
       <v-icon>mdi-arrow-left-circle</v-icon>
     </v-btn>
-    <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome">STARFIT</v-toolbar-title>
-
+    <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome"
+      >STARFIT</v-toolbar-title
+    >
 
     <v-spacer></v-spacer>
 
     <v-btn v-if="isLoggedIn === false" icon @click="pushLogin">
       <v-icon>mdi-account-key</v-icon>
     </v-btn>
+
     <v-btn v-else-if="isLoggedIn === true" icon>
       <v-icon>mdi-account-heart</v-icon>
     </v-btn>
@@ -54,12 +55,12 @@ export default {
     pushHome: function () {
       this.$router.push({ name: "Home" });
     },
-    pushRank: function() {
-      this.$router.push({name: 'Rank'});
+    pushRank: function () {
+      this.$router.push({ name: "Rank" });
     },
-    pushBack: function() {
+    pushBack: function () {
       this.$router.go(-1);
-    }
+    },
   },
   computed: {
     ...mapGetters(["isLoggedIn"]),

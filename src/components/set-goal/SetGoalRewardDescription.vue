@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" style="text-align: center">
         <div>
             <span style="font-size: 0.7rem;">끝까지 목표를 완성하면 총 
             <span style="text-decoration: underline; color: red;">{{ point }}</span>
