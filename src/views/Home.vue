@@ -22,7 +22,7 @@ export default {
     HomeGoalStatus,
     HomeGoalCardList,
     HomePointCard,
-    GoalFloatingButton
+    GoalFloatingButton,
   },
 };
 </script>

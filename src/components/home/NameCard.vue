@@ -13,14 +13,14 @@
           <img
             class="pa-2"
             width="70%"
-            src="../../assets/점핑아거.png"
+            :src="character[user.characterId - 1][0]"
             alt="캐릭터"
           />
         </v-progress-circular>
       </v-col>
       <v-col cols="6" align-self="center">
         <v-card-title class="pa-0">
-          <p class="body-1 font-weight-black jello-horizontal">마안재</p>
+          <p class="body-1 font-weight-black jello-horizontal">{{user.name}}</p>
           <p class="caption">님</p>
         </v-card-title>
         <v-card-subtitle class="pa-0 caption font-weight-thin"
@@ -38,7 +38,7 @@ export default {
   data() {
     return {};
   },
-  computed: {...mapGetters(['ratio'])},
+  computed: {...mapGetters(['ratio','user', 'character'])},
 };
 </script>
 
@@ -108,4 +108,5 @@ export default {
     transform: scale3d(1, 1, 1);
   }
 }
+
 </style>

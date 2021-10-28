@@ -1,13 +1,10 @@
 <template>
   <div class="spacing-playground ma-4">
-    <v-card  color="#EF7880"  dark>
-      <v-card-title class="spacing-playground pb-1">
-        <p class="text-h6 spacing-playground mb-1">마안재님의 현재 잔여 핏포: </p>
-        <p class="text-h4 spacing-playground mb-0">{{point | userPoint}} F</p>
+    <v-card  >
+      <v-card-title class="spacing-playground pb-1" style="background-color:#6782D4; color:white">
+        <p class="text-h6 spacing-playground mb-1">{{user.name}}님의 현재 잔여 핏포인트 </p>
       </v-card-title>
-      <v-card-actions>
-        
-      </v-card-actions>
+        <p class="text-h4 spacing-playground pa-4 text-center">{{point | userPoint}} F</p>
     </v-card>
     <v-dialog
       v-model="dialog"
@@ -16,20 +13,24 @@
       transition="dialog-bottom-transition"
     >
      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          class="mt-2"
-          v-bind="attrs"
-          v-on="on"
-        >
-        포인트로 혜택 받기 💰
-      </v-btn>
+       <div style="width:100%">
+          <v-btn
+            color="#4B8B90 "
+            dark
+            class="mt-2 float-right"
+            v-bind="attrs"
+            v-on="on"
+            
+          >
+          핏포인트 사용하기 💰
+        </v-btn>
+        <br/>
+       </div>
     </template>
      <v-card  color="#FFFAF6" >
         <v-toolbar
           dark
-          color="#60584C"
+          color="#4B8B90"
         >
           <v-btn
             icon
@@ -38,16 +39,16 @@
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title class="text-center mr-10" style="width:100%" >핏포 사용하기</v-toolbar-title>
+          <v-toolbar-title class="text-center mr-10" style="width:100%" >핏포인트 사용하기</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
-        <div style="background-color: #EAEAEA" class="ma-8 pa-5 font-weight-black">
+        <v-card class="ma-8 pa-5">
           <v-row>
             <v-col 
               cols="7"
             >
-            <v-icon>mdi-ticket</v-icon> 잔여 핏포</v-col> 
-            <v-col class="text-end pr-0 pl-0 text-h5 font-weight-bold" cols="3"> {{point | userPoint}}</v-col> <v-col>F</v-col>
+            <v-icon>mdi-ticket</v-icon> 잔여 핏포인트</v-col> 
+            <v-col class="text-end pr-0 pl-0 text-h5" cols="3"> {{point | userPoint}}</v-col> <v-col>F</v-col>
           </v-row>
           <v-row >
               <v-col 
@@ -55,12 +56,12 @@
               >
                 <v-icon>mdi-alpha-p-circle-outline</v-icon> 구매 가능 포인트리 
               </v-col>
-              <v-col class="text-end pr-0 pl-0 text-h5 font-weight-bold" cols="3"> {{Math.floor(point/100)| userPoint}}</v-col> <v-col>P</v-col>
+              <v-col class="text-end pr-0 pl-0 text-h5" cols="3"> {{Math.floor(point/100)| userPoint}}</v-col> <v-col>P</v-col>
             </v-row>
-        </div>  
-        <div class="ma-9 font-weight-bold">
+        </v-card>  
+        <div class="ma-9">
           구매할 포인트리
-          <div class="font-weight-bold mt-1">
+          <div class="mt-1">
             <v-btn
               rounded
               dark
@@ -112,7 +113,7 @@
               @input="changePointInput($event)"
             >
             </v-text-field>
-            <v-input class="d-flex text-h4 font-weight-bold" ref="fitPointInput"
+            <v-input class="d-flex text-h4" ref="fitPointInput"
             >
               = {{usingFitPo}} F
             </v-input>
@@ -120,8 +121,8 @@
           <div class="text-right">
             <v-btn
               rounded
-              color="#EFB775"
-              class="font-weight-bold "
+              color="#4B8B90"
+              dark
               :disabled="pointryInput === 0"
               @click="useFitPoint"
             >
@@ -151,7 +152,7 @@
       usingFitPo: 0,
     }),
     computed: {
-      ...mapGetters(['point']),
+      ...mapGetters(['point', 'user']),
     },
     methods: {
       goBenefitPage () {
@@ -212,7 +213,7 @@
         let pointInfo = {
           "description": "포인트리 구매",
           "point": this.usingFitPo*-1,
-          "userId":1,
+          "userId": this.user.id,
           "pointry":this.pointryInput
         };
 
@@ -228,7 +229,7 @@
         }
     },
     created: function(){
-        this.getUserPoint(1);
+        this.getUserPoint(this.user.id);
     }
   }
 

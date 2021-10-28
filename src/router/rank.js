@@ -1,8 +1,11 @@
-import Rank from '../views/Rank.vue';
+import Rank from "../views/Rank.vue";
 export default [
-    {
-        path: "/rank",
-        name: "Rank",
-        component: Rank
-    }
-]
+  {
+    path: "/rank",
+    name: "Rank",
+    component: Rank,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+];

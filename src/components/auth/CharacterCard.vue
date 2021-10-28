@@ -10,8 +10,22 @@
         />
       </v-row>
       <v-row class="ml-5 mb-2 body-2 font-weight-black"
-        >로그인</v-row
+        >{{title}}</v-row
       >
     </v-col>
   </v-card>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      title: '로그인'
+    }
+  },
+  created: function() {
+    if(this.$route.name === 'Login')  this.title = '로그인';
+    else  this.title = '회원가입';
+  }
+}
+</script>

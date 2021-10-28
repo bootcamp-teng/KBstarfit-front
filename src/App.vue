@@ -2,6 +2,7 @@
   <v-app style="background: #FFFAF6">
     <app-bar></app-bar>
     <v-main>
+    <!-- <success-alert></success-alert> -->
       <router-view />
     </v-main>
     <Footer></Footer>
@@ -11,6 +12,7 @@
 <script>
 import AppBar from './components/common/AppBar.vue';
 import Footer from './components/common/Footer.vue';
+// import SuccessAlert from './components/alert/SuccessAlert.vue';
 
 export default {
   name: "App",
@@ -20,7 +22,8 @@ export default {
   }),
   components: {
     AppBar,
-    Footer
+    Footer,
+    // SuccessAlert
   }
 };
 </script>
@@ -28,7 +31,10 @@ export default {
 <style>
 * {
   /* font-family: 'Nanum Gothic', sans-serif; */
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'ROKABold' ;
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKABold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .maincolor {
@@ -54,5 +60,6 @@ export default {
 .light-pink {
   background: #FCE4E4;
 }
+
 
 </style>

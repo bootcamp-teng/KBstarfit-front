@@ -1,11 +1,13 @@
 <template>
   <div class="mt-2">
     <span class="body-2 ml-5 mb-0">나의 목표 🚩</span>
-    <v-slide-group center-active>
-      <v-slide-item v-for="goal in goalList" :key="goal.id">
-        <home-goal-card :goal="goal"></home-goal-card>
-      </v-slide-item>
-    </v-slide-group>
+          <v-sheet>
+            <v-slide-group style="background: #FFFAF6" center-active>
+              <v-slide-item class="ma-5" v-for="goal in goalList" :key="goal.id">
+                <home-goal-card :goal="goal"></home-goal-card>
+              </v-slide-item>
+            </v-slide-group>
+          </v-sheet>
     <no-goal-card v-if="goalList.length == 0"></no-goal-card>
   </div>
 </template>
@@ -63,10 +65,10 @@ export default {
     ...mapActions(["getUserGoalList"]),
   },
   computed: {
-    ...mapGetters(["goalList"]),
+    ...mapGetters(["goalList", "user"]),
   },
   created: function () {
-    this.getUserGoalList(1);
+    this.getUserGoalList(this.user.id);
   },
 };
 </script>
