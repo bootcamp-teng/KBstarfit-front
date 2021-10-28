@@ -7,7 +7,7 @@
       <p class="exercise-info body-2 mt-3 font-weight-black">
         목표: {{ goal }}
       </p>
-      <p class="exercise-info text-h5 font-weight-black test">{{ current }}</p>
+      <p class="exercise-info font-weight-black test">{{ current }}</p>
       <p class="exercise-info caption">걸음</p>
     </div>
     <v-row justify="end" class="mr-2 mb-2">

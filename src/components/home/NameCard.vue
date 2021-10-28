@@ -20,10 +20,10 @@
       </v-col>
       <v-col cols="6" align-self="center">
         <v-card-title class="pa-0">
-          <p class="body-1 font-weight-black jello-horizontal">{{user.name}}</p>
-          <p class="caption">님</p>
+          <p class="font-weight-black jello-horizontal" style="font-size: medium">{{user.name}}</p>
+          <p class="" style="font-size: small;">님</p>
         </v-card-title>
-        <v-card-subtitle class="pa-0 caption font-weight-thin"
+        <v-card-subtitle class="pa-0 my-font-thin" style="font-size: small"
           >오늘도 건강한 하루 보내세요🏋🏻‍♀️</v-card-subtitle
         >
       </v-col>
