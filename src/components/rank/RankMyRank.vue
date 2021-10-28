@@ -7,7 +7,7 @@
       </v-avatar>
     </v-row>
     <v-row justify="center" class="caption font-weight-black">
-      <span class="tracking-in-expand-fwd">{{ user.name }} 님은 현재 <span v-if="me.rank != undefined">{{ me.rank }} 등 🔥</span> <v-span v-else>등수가 없어요🥲</v-span></span>
+      <span class="tracking-in-expand-fwd">{{ user.name }} 님은 현재 <span v-if="me.rank != 0">{{ me.rank }} 등 🔥</span> <v-span v-else>등수가 없어요🥲</v-span></span>
     </v-row>
   </div>
 </template>

@@ -23,7 +23,7 @@ const rank = {
             console.log(data);
 
             const me = {
-                id: 1,
+                id: userId,
                 username: myName,
                 exer: myExerAmt,
                 rank: myRank
