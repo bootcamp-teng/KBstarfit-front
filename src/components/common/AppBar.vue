@@ -1,8 +1,18 @@
 <template>
   <v-app-bar flat app fixed dark color="#EFB775">
+<<<<<<< HEAD
 
     <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome">STARFIT</v-toolbar-title>
 
+=======
+    <v-btn icon @click="pushBack">
+      <v-icon>mdi-arrow-left-circle</v-icon>
+    </v-btn>
+
+    <v-toolbar-title>
+      <img width="50%" src="../../assets/logo.png" alt="John" />
+    </v-toolbar-title>
+>>>>>>> uiux-002
 
     <v-spacer></v-spacer>
 
@@ -14,7 +24,7 @@
     </v-btn>
 
     <v-btn icon @click="pushRank">
-      <v-icon>mdi-heart</v-icon>
+      <v-icon>mdi-star-face</v-icon>
     </v-btn>
     <v-menu v-if="isLoggedIn === true" offset-y>
       <template v-slot:activator="{ on, attrs }">
@@ -53,6 +63,9 @@ export default {
     },
     pushRank: function() {
       this.$router.push({name: 'Rank'});
+    },
+    pushBack: function() {
+      this.$router.go(-1);
     }
   },
   computed: {

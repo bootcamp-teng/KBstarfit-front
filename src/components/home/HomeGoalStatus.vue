@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="water-waves-parent">
     <div class="water-waves mt-5">
       <div class="water-wave1" :style="{ top: 100 - ratio + '%' }"></div>
       <div class="water-wave2" :style="{ top: 100 - (ratio + 5) + '%' }"></div>
@@ -61,8 +61,15 @@ export default {
   position: relative;
   z-index: 1;
 }
+.water-waves-parent {
+-webkit-backface-visibility: hidden;
+ -moz-backface-visibility: hidden;
+ -webkit-transform: translate3d(0, 0, 0);
+ -moz-transform: translate3d(0, 0, 0);
+}
+
 .water-waves {
-  background: #d2eee8;
+  background: white; 
   margin: 0 auto;
   overflow: hidden;
   position: relative;
