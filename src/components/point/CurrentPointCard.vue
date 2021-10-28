@@ -47,8 +47,8 @@
         </v-card>
         <div>
           구매할 포인트리
-          <v-row no-gutters class="ma-3" justify="center">
-            <v-col>
+          <v-row no-gutters class="ma-2" justify="center">
+            <v-col align-self="center">
               <v-btn
                 rounded
                 dark

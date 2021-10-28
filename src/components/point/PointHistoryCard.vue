@@ -13,21 +13,27 @@
           align-self="center"
           v-text="point.date.substring(5, 10).replaceAll('-', '/')"
         >
-        </v-col>
-        <v-col cols="5" v-text="point.description"> </v-col>
-        <v-col
-          class="font-weight-black text-end mr-3"
-          style="color: #6782d4"
-          v-if="point.point > 0"
-          v-text="'+ ' + calPoint(point.point) + ' P'"
-        >
-        </v-col>
-        <v-col
-          class="font-weight-black text-end mr-3"
-          style="color: #ef7880"
-          v-else
-          v-text="calPoint(point.point) + ' P'"
-        >
+          <v-col
+            cols="2"
+            class="ml-3 pr-0"
+            v-text="point.date.substring(5, 10).replaceAll('-', '/')"
+          >
+          </v-col>
+          <v-col cols="5 pl-1 pr-1" v-text="point.description"> </v-col>
+          <v-col
+            class="font-weight-black text-end mr-3 pl-0"
+            style="color: #6782d4"
+            v-if="point.point > 0"
+            v-text="'+ ' + calPoint(point.point) + ' P'"
+          >
+          </v-col>
+          <v-col
+            class="font-weight-black text-end mr-3 pl-0"
+            style="color: #ef7880"
+            v-else
+            v-text="calPoint(point.point) + ' P'"
+          >
+          </v-col>
         </v-col>
       </v-row>
     </v-card>
@@ -68,4 +74,3 @@ export default {
   box-shadow: 10px 10px 10px lightgray;
 }
 </style>
-
