@@ -6,6 +6,7 @@
     :color="colorInfo[goal['statusCode']]"
     @click="record(goal.id)"
     height="200"
+    :disabled="goal['statusCode'] == 0 ? false : true"
   >
     <div align="right" class="pr-3">
       <v-btn class="mt-2" fab x-small elevation="0">
@@ -13,7 +14,7 @@
       </v-btn>
     </div>
     <div>
-      <v-card-title class="text-h6"> {{ goal.title }} </v-card-title>
+      <v-card-title class=""> {{ goal.title }} </v-card-title>
       <v-card-subtitle class="body-2 pb-0 mb-0">
         <p class="caption">
           📆 {{ goal["startDate"].split("T")[0] }} ~

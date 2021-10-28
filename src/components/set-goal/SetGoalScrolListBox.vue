@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <div v-if="listBoxType === 1" style="padding-left: 150px;">
+    <div class="container" style="text-align: center">
+        <div v-if="listBoxType === 1" style="display: inline-block">
           <div style="height: 200px; width: 100px; overflow: scroll; border: 1px solid #ccc;">
             <ul style="list-style: none; padding-left: 0px;">
               <li class="m-text list-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in period">{{ d }}</li>
@@ -11,7 +11,7 @@
             </select> -->
         </div>
 
-        <div v-if="listBoxType === 2" style="padding-left: 150px;">
+        <div v-if="listBoxType === 2" style="display: inline-block">
           <div style="height: 200px; width: 100px; overflow: scroll; border: 1px solid #ccc;">
             <ul style="list-style: none; padding-left: 0px;">
               <li class="m-text list-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in stepList">{{ d }}</li>
@@ -22,7 +22,7 @@
             </select> -->
         </div>
 
-        <div v-if="listBoxType === 3" style="padding-left: 150px;">
+        <div v-if="listBoxType === 3" style="display: inline-block">
           <div style="height: 200px; width: 100px; overflow: scroll; border: 1px solid #ccc;">
             <ul style="list-style: none; padding-left: 0px;">
               <li class="m-text list-text" :key="i" :value="d" @click="selected(d, i)" v-for="(d, i) in typeList">{{ d }}</li>

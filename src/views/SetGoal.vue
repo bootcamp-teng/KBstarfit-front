@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container">
   <set-goal-body></set-goal-body>
   <set-goal-reward-description></set-goal-reward-description>
   <set-goal-scrol-list-box></set-goal-scrol-list-box>

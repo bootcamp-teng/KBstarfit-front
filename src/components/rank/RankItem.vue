@@ -16,11 +16,11 @@
           </v-col>
 
           <v-col cols="3" align-self="center">
-            <span class="body-2 font-weight-black">{{ user.username }}</span>
+            <span class=" font-weight-black">{{ user.username }}</span>
           </v-col>
 
           <v-col cols="6" align-self="center">
-            <span class="caption">{{ user.exer }} 걸음</span>
+            <span style="font-size: small">{{ user.exer }} 걸음</span>
             <v-icon v-if="user.id === 1" color="#FFD700">military_tech</v-icon>
             <v-icon v-if="user.id === 2" color="#C0C0C0">military_tech</v-icon>
             <v-icon v-if="user.id === 3" color="#800000">military_tech</v-icon>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <span class="body-2 ml-5 mb-0">나의 랭킹 ⭐️</span>
+    <span class="ml-5 mb-0" style="font-size: small">나의 랭킹 ⭐️</span>
     <v-row no-gutters justify="center">
       <v-avatar class="mr-2 ml-2" size="80" color="white">
         <img :src="character[user.characterId - 1][2]" alt="John" />

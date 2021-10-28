@@ -1,6 +1,6 @@
 <template>
   <div class="mt-2">
-    <span class="body-2 ml-5 mb-0">나의 목표 🚩</span>
+    <span class="ml-5 mb-0" style="font-size: small">나의 목표 🚩</span>
           <v-sheet>
             <v-slide-group style="background: #FFFAF6" center-active>
               <v-slide-item class="ma-5" v-for="goal in goalList" :key="goal.id">
