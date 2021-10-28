@@ -169,7 +169,7 @@
         
         let pointry = pointryVal*1;
         this.pointryInput = pointry;
-        this.usingFitPo = pointry*100;
+        this.usingFitPo = pointry*10;
         if (this.usingFitPo>this.point){
           alert("핏포가 부족합니다.");
           this.usingFitPo = 0;
@@ -204,6 +204,11 @@
       //   return poPointry;
       // },
       useFitPoint(){
+        if(this.usingFitPo>100000){
+          alert('1회 사용 한도는 100,000 핏포인트입니다.');
+          return;
+        }
+
         let pointInfo = {
           "description": "포인트리 구매",
           "point": this.usingFitPo*-1,
