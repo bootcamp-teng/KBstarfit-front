@@ -11,21 +11,21 @@
         >
           <v-col 
             cols="2"
-             class="ml-4" 
+             class="ml-3 pr-0" 
              v-text="point.date.substring(5,10).replaceAll('-','/')">
           </v-col>
           <v-col 
-            cols="6"
+            cols="5 pl-1 pr-1"
              v-text="point.description">
           </v-col>
           <v-col 
-            class="font-weight-black text-end mr-3" 
+            class="font-weight-black text-end mr-3 pl-0" 
             style="color: #6782D4" 
             v-if="point.point>0" 
             v-text="'+ '+calPoint(point.point)+' P'">
           </v-col>
           <v-col 
-            class="font-weight-black text-end mr-3" 
+            class="font-weight-black text-end mr-3 pl-0" 
             style="color: #EF7880" 
             v-else 
             v-text="calPoint(point.point)+' P'">
