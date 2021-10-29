@@ -59,8 +59,8 @@ export default {
 }
 
 .exercise-info {
-  position: relative;
-  z-index: 1;
+  /* position: relative; */
+  /* z-index: 1; */
   -webkit-transform-style: preserve-3d;
   -webkit-transform: translateZ(-5px);
 }
