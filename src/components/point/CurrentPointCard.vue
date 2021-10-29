@@ -54,13 +54,11 @@
         </v-card>
         <div class="ma-6">
           구매할 포인트리
-          <v-row no-gutters class="ma-2" justify="center">
-            <v-col align-self="center">
+          <v-row class="ma-2" justify="center">
+            <v-col >
               <v-btn
                 rounded
-                dark
-                color="secondary"
-                outlined
+                color="white"
                 @click="clickPointBtn(1000)"
               >
                 +1,000P
@@ -69,9 +67,7 @@
             <v-col >
               <v-btn
                 rounded
-                dark
-                color="secondary"
-                outlined
+                color="white"
                 @click="clickPointBtn(500)"
               >
                 +500P
@@ -81,9 +77,7 @@
             <v-col >
               <v-btn
                 rounded
-                dark
-                color="secondary"
-                outlined
+                color="white"
                 @click="clickPointBtn(100)"
               >
                 +100P
@@ -93,9 +87,7 @@
             <v-col>
               <v-btn
                 rounded
-                dark
-                color="secondary"
-                outlined
+                color="white"
                 @click="clickPointBtn(10)"
               >
                 +10P
@@ -110,7 +102,7 @@
               hide-details="auto"
               append-icon="mdi-alpha-p"
               v-model="pointryInput"
-              class="text-h6"
+              class="text-h5"
               @input="changePointInput($event)"
             >
             </v-text-field>
