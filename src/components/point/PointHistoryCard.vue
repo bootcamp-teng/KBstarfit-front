@@ -6,7 +6,7 @@
         no-gutters
         v-for="point in pointList.data"
         :key="point.id"
-        class="text-center mt-2"
+        class="text-center mt-1"
       >
         <v-col
           cols="2"
@@ -16,14 +16,14 @@
         </v-col>
         <v-col cols="5" v-text="point.description"> </v-col>
         <v-col
-          class="font-weight-black text-end mr-3"
+          class="font-weight-black text-end "
           style="color: #6782d4"
           v-if="point.point > 0"
           v-text="'+ ' + calPoint(point.point) + ' P'"
         >
         </v-col>
         <v-col
-          class="font-weight-black text-end mr-3"
+          class="font-weight-black text-end"
           style="color: #ef7880"
           v-else
           v-text="calPoint(point.point) + ' P'"
