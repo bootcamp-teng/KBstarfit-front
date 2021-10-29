@@ -3,7 +3,7 @@
     <v-btn icon @click="pushBack">
       <v-icon>mdi-arrow-left-circle</v-icon>
     </v-btn>
-    <v-toolbar-title class="font-weight-bold ml-5" @click="pushHome"
+    <v-toolbar-title class="font-weight-bold pl-1 my-font-thin" @click="pushHome"
       >STARFIT</v-toolbar-title
     >
 

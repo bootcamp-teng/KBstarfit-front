@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <p class="pt-3 ml-3" style="font-size: small">핏포인트 기록</p>
-    <v-card scrollable class="rounded-card shadow">
+    <p class="pt-3 ml-5" style="font-size: small">핏포인트 기록</p>
+    <v-card scrollable class="rounded-card shadow ml-5 mr-5 pa-2">
       <v-row
         no-gutters
         v-for="point in pointList.data"

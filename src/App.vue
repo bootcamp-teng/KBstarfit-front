@@ -34,12 +34,10 @@ export default {
 }
 
 .my-font-thin {
-@font-face {
     font-family: 'ROKAMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKAMedium.woff') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
 }
 
 .maincolor {

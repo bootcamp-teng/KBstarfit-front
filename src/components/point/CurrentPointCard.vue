@@ -1,3 +1,9 @@
+<style scoped>
+.rounded-card {
+  border-radius: 20px;
+}
+</style>
+
 <template>
   <div class="container">
     <home-point-card></home-point-card>
@@ -12,7 +18,7 @@
           <v-btn
             color="#4B8B90 "
             dark
-            class="mt-2 float-right mr-5"
+            class="mt-2 float-right mr-5 pr-2"
             v-bind="attrs"
             v-on="on"
             style="border-radius: 20px;"
@@ -32,7 +38,7 @@
           >
           <v-spacer></v-spacer>
         </v-toolbar>
-        <v-card class="ma-8 pa-5">
+        <v-card class="ma-5 pa-5 rounded-card">
           <v-row no-gutters>
             <v-col cols="7"> <v-icon>mdi-ticket</v-icon> 잔여 핏포인트</v-col>
             <v-col class="text-end pr-0 pl-0"> {{ point | userPoint }} F</v-col>
@@ -46,7 +52,7 @@
             >
           </v-row>
         </v-card>
-        <div>
+        <div class="ma-6">
           구매할 포인트리
           <v-row no-gutters class="ma-2" justify="center">
             <v-col align-self="center">
@@ -97,13 +103,14 @@
             </v-col>
           </v-row>
 
-          <div class="mt-4">
+          <div class="mt-5">
             <v-text-field
               label="구매할 포인트리 입력"
               :rules="rules"
               hide-details="auto"
               append-icon="mdi-alpha-p"
               v-model="pointryInput"
+              class="text-h6"
               @input="changePointInput($event)"
             >
             </v-text-field>
@@ -225,8 +232,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.rounded-card {
-  border-radius: 20px;
-}
-</style>
