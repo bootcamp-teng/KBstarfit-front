@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <current-goal-card></current-goal-card>
-    <span class=" ml-5 mb-0" style="font-size: small">활동 🔥 </span>
-    
+    <!-- <home-goal-card :goal="goalList"></home-goal-card> -->
+    <span class="ml-5 mb-0" style="font-size: small">활동 🔥 </span>
 
     <exercise-chart></exercise-chart>
-        <span class=" ml-5 mb-0 mt-5" style="font-size: small">
-
+    <span class="ml-5 mb-0 mt-5" style="font-size: small">
       {{ user.name }}님의 운동 기록 🏃‍♀️
     </span>
     <exercise-history-card></exercise-history-card>
@@ -14,21 +13,26 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 import ExerciseChart from "../components/exercise/ExerciseChart.vue";
 import CurrentGoalCard from "../components/exercise/CurrentGoalCard.vue";
 import ExerciseHistoryCard from "../components/exercise/ExerciseHistoryCard.vue";
 
 export default {
   name: "ExerciseHistory",
-
+  data() {
+    return {};
+  },
   components: {
     CurrentGoalCard,
     ExerciseHistoryCard,
-    ExerciseChart
+    ExerciseChart,
   },
   computed: {
-    ...mapGetters(['user'])
+    ...mapGetters(["user", "goalList"]),
+  },
+  created: function(){
+    console.log(this.$route.params.id)
   }
 };
 </script>
