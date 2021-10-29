@@ -52,10 +52,11 @@
             >
           </v-row>
         </v-card>
+        
         <div class="ma-6">
           구매할 포인트리
-          <v-row class="ma-2" justify="center">
-            <v-col >
+          <v-row no-gutters class="ma-2" justify="center">
+            <v-col align-self="center">
               <v-btn
                 rounded
                 color="white"
