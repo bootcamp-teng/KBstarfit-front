@@ -8,7 +8,7 @@
       <v-row no-gutters>
 
         <span class="m-text">나도 </span>
-        <v-text-field  align="center" class="text-field text-h6" :value="period" @click="showListBox(1)" readonly></v-text-field>
+        <v-text-field  align="center" class="text-field text-h6" style="width:100px" :value="period" @click="showListBox(1)" readonly></v-text-field>
         <span class="m-text">일 동안</span><br>
       </v-row>
         <v-text-field align="center" class="text-field text-h6" :value="type" @click="showListBox(3)" readonly></v-text-field>

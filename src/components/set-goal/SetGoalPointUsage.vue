@@ -61,7 +61,7 @@
                     height="150px"
                     style="padding-top: 40px;"
                 >
-                    <span class="m-text" style="font-weight: bold;">KB국민은행의 "스타핏 적금"과<br> 함께 높은 이율을 경험하세요</span>
+                    <span class="m-text" style="font-weight: bold;">현금처럼 사용가능한 포인트리로<br /> 교환해서 사용할 수 있어요</span>
                 </v-card>
             </v-col>
         </v-row>

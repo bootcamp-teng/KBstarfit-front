@@ -41,7 +41,7 @@ const pointStore = {
             )
         .then(({ data }) => {
             console.log(data);
-            alert(pointInfo.pointry+" 포인트 구매에 성공했습니다. 현금처럼 사용해보세요");
+            alert(pointInfo.pointry+" 포인트리 구매에 성공했습니다. 현금처럼 사용해보세요");
             router.go();
         })
         .catch((err) => {

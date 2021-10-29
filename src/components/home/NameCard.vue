@@ -23,7 +23,7 @@
           <p class="font-weight-black jello-horizontal" style="font-size: medium">{{user.name}}</p>
           <p class="" style="font-size: small;">님</p>
         </v-card-title>
-        <v-card-subtitle class="pa-0 my-font-thin" style="font-size: small"
+        <v-card-subtitle class="pa-0" style="font-size: small"
           >오늘도 건강한 하루 보내세요🏋🏻‍♀️</v-card-subtitle
         >
       </v-col>
