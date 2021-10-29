@@ -30,19 +30,16 @@ export default {
 
 <style>
 * {
-  /* font-family: 'Nanum Gothic', sans-serif; */
-  font-family: 'ROKABold' ;
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKABold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Jua', sans-serif;
 }
 
 .my-font-thin {
-
+@font-face {
     font-family: 'ROKAMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKAMedium.woff') format('woff');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKAMedium.woff') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
 }
 
 .maincolor {

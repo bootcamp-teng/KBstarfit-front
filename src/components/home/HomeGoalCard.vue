@@ -6,7 +6,7 @@
     :color="colorInfo[goal['statusCode']]"
     @click="record(goal.id)"
     height="200"
-    :disabled="goal['statusCode'] == 0 ? false : true"
+    :disabled="goal['statusCode'] == 2 ? true : false"
   >
     <div align="right" class="pr-3">
       <v-btn class="mt-2" fab x-small elevation="0">
