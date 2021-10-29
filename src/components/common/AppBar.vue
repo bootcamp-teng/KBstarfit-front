@@ -8,17 +8,38 @@
     >
 
     <v-spacer></v-spacer>
+    <template>
+        <v-btn v-if="isLoggedIn === false" icon @click="pushLogin">
+          <v-icon>mdi-account-key</v-icon>
+        </v-btn>
+        <v-btn @click.stop="dialog = true" v-else-if="isLoggedIn === true" icon>
+          <v-icon>mdi-account-heart</v-icon>
+        </v-btn>
 
-    <v-btn v-if="isLoggedIn === false" icon @click="pushLogin">
-      <v-icon>mdi-account-key</v-icon>
-    </v-btn>
+        <v-dialog v-model="dialog" max-width="350">
+          <v-card>
+            <v-card-title style="color: black" class="text-h5">
+              KB STARFIT
+            </v-card-title>
 
-    <v-btn v-else-if="isLoggedIn === true" icon>
-      <v-icon>mdi-account-heart</v-icon>
-    </v-btn>
+            <v-card-text class="text-center">
+              "런닝메이트" 관련 기능은 다음에 업데이트 예정입니다!
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn color="green darken-1" text @click="dialog = false">
+                닫기
+              </v-btn>
+
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+    </template>
 
     <v-btn icon @click="pushRank">
-      <v-icon>mdi-star-face</v-icon>
+      <v-icon>mdi-trophy-award</v-icon>
     </v-btn>
     <v-menu v-if="isLoggedIn === true" offset-y>
       <template v-slot:activator="{ on, attrs }">
@@ -42,7 +63,9 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      dialog: false,
+    };
   },
   methods: {
     pushLogin: function () {

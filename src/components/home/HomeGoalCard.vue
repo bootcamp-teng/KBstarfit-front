@@ -2,7 +2,7 @@
   <v-card
     hover
     elevation="5"
-    class="pl-3 ml-5 mr-5 mt-2"
+    class="pl-3 ml-5 mr-5 mt-2 rounded-card"
     :color="colorInfo[goal['statusCode']]"
     @click="record(goal.id)"
     height="200"
@@ -54,3 +54,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.rounded-card {
+  border-radius: 20px;
+}
+</style>
