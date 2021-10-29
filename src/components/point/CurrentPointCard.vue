@@ -12,16 +12,17 @@
           <v-btn
             color="#4B8B90 "
             dark
-            class="mt-2 float-right"
+            class="mt-2 float-right mr-5"
             v-bind="attrs"
             v-on="on"
+            style="border-radius: 20px;"
           >
             핏포인트 사용하기 💰
           </v-btn>
           <br />
         </div>
       </template>
-      <v-card color="#FFFAF6">
+      <v-card color="#FFFAF6" c>
         <v-toolbar dark color="#4B8B90">
           <v-btn icon dark @click="dialog = false">
             <v-icon>mdi-close</v-icon>
@@ -224,3 +225,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.rounded-card {
+  border-radius: 20px;
+}
+</style>
